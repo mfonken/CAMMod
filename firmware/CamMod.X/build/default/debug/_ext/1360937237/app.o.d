@@ -310,4 +310,5 @@ build/default/debug/_ext/1360937237/app.o:  \
  ../../../../../../../microchip/harmony/v2_01b/framework/driver/i2c/drv_i2c_compatibility.h  \
  ../../../../../../../microchip/harmony/v2_01b/framework/driver/i2c/drv_i2c_mapping.h  \
  ../src/app.h  \
-../src/centroid.h 
+../src/centroid.h  \
+../src/ov9712.h 

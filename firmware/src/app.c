@@ -55,6 +55,7 @@ SUBSTITUTE GOODS, TECHNOLOGY, SERVICES, OR ANY CLAIMS BY THIRD PARTIES
 
 #include "app.h"
 #include "centroid.h"
+#include "ov9712.h"
 
 // *****************************************************************************
 // *****************************************************************************
@@ -125,7 +126,29 @@ volatile int frame_row_count = 0;
 volatile int frame_row_div_count = APP_FRAME_ROW_DIV;
 bool wait_for_vsync = true;
 
-uint8_t img_header[5] = { 0x06, 0x08, 0x07, 0x09, '\t' };
+void printChar( uint8_t c )
+{
+    DRV_USART_WriteByte( appData.drvUSARTHandle , c );
+}
+
+bool initCamera()
+{
+    int i = 0, j = 0;
+    uint8_t buffer[2];
+    for( ; ; i++ )
+    {
+        if( OV9712_regs[i].id == ENDR ) 
+        {
+            return true;
+        }
+        buffer[0] = OV9712_regs[i].id;
+        buffer[1] = OV9712_regs[i].value;
+        DRV_I2C_BUFFER_HANDLE handle = DRV_I2C_Transmit( appData.drvI2CHandle, OV9712_ADDR, buffer, (sizeof(buffer)), NULL );
+        while( DRV_I2C_TransferStatusGet( appData.drvI2CHandle, handle ) != DRV_I2C_BUFFER_EVENT_COMPLETE );
+    }
+}
+
+
 /******************************************************************************
   Function:
     void APP_Tasks ( void )
@@ -156,18 +179,16 @@ void APP_Tasks ( void )
                 SYS_INT_SourceEnable(INT_SOURCE_SOFTWARE_1);
     
                 delay(10000);
-                appData.drvI2CHandle = DRV_I2C_Open( DRV_I2C_INDEX_0, DRV_IO_INTENT_WRITE );
-                uint8_t buffer[] = {0xc2,0xb0};
-                DRV_I2C_Transmit( appData.drvI2CHandle, 0x60, buffer, (sizeof(buffer)), NULL );
-                
-                delay(3000);
+                appData.drvI2CHandle = DRV_I2C_Open( DRV_I2C_INDEX_0, DRV_IO_INTENT_WRITE ); 
+                delay(300);
                 appData.drvUSARTHandle = DRV_USART_Open( DRV_USART_INDEX_0, DRV_IO_INTENT_WRITE );
                 //DRV_USART_WriteByte(appData.drvUSARTHandle, DRV_USART_ReadByte(appData.drvUSARTHandle));
-                
-                DRV_USART_WriteByte(appData.drvUSARTHandle , '\r');
-//                DRV_USART_WriteByte(appData.drvUSARTHandle , '\n');
-//                DRV_USART_WriteByte(appData.drvUSARTHandle , '^');
-                
+
+                printChar( '\r' );
+                delay(20000);
+                initCamera();
+                delay(20000);
+
                   /* Allocate a DMA channel */
                 appData.sysDMAHandle = SYS_DMA_ChannelAllocate(DMA_CHANNEL_0);
                 /* Register an event handler for the channel */
@@ -200,7 +221,7 @@ void APP_Tasks ( void )
              if (!DRV_USART_ReceiverBufferIsEmpty(appData.drvUSARTHandle))
             {
                 uint8_t c = DRV_USART_ReadByte(appData.drvUSARTHandle);
-                DRV_USART_WriteByte(appData.drvUSARTHandle, c);   
+                printChar( c );   
             }
             
             break;
@@ -245,11 +266,11 @@ void APP_VSYNC_Interrupt_Handler( void )
         SYS_INT_SourceStatusSet( DMA_TRIGGER_SOFTWARE_1 );
     }
     
-    DRV_USART_WriteByte( appData.drvUSARTHandle, 0xfa );
+    printChar( 0xfa );
     delay(150);
-    DRV_USART_WriteByte( appData.drvUSARTHandle, 0xa1 );
+    printChar( 0xa1 );
     delay(150);
-    DRV_USART_WriteByte( appData.drvUSARTHandle, (char)centroids.numBlobs );
+//    DRV_USART_WriteByte( appData.drvUSARTHandle, (char)centroids.numBlobs );
     
     centroids.numBlobs = 0;
     frame_row_count = 0;
@@ -269,12 +290,13 @@ void APP_HSYNC_Interrupt_Handler( void )
         
         volatile uint8_t i = 0;
         
-        //DRV_USART_WriteByte( appData.drvUSARTHandle, 'b' );
-        getCentroids( appData.ramBuff, frame_row_count, 3 );
-        //DRV_USART_WriteByte( appData.drvUSARTHandle, 'e' );
+//        DRV_USART_WriteByte( appData.drvUSARTHandle, 'b' );
+//        getCentroids( appData.ramBuff, frame_row_count, 10 );
+//        DRV_USART_WriteByte( appData.drvUSARTHandle, 'e' );
+//        DRV_USART_WriteByte( appData.drvUSARTHandle, (char)centroids.numBlobs );
         while( i < APP_FRAME_HEIGHT_RGB )
         {
-            //DRV_USART_WriteByte( appData.drvUSARTHandle, appData.ramBuff[i] );
+            printChar( appData.ramBuff[i] );
             i++;
             delay(150);
         }
@@ -293,6 +315,7 @@ void APP_Line_Done_Interrupt_Handler( void )
     //PMP_RToggle();
     appData.state = APP_FRAME_DONE;
 }
+
 
 void delay( int count )
 {

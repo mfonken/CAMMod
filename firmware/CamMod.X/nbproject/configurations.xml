@@ -25,6 +25,7 @@
         </logicalFolder>
         <itemPath>../src/app.h</itemPath>
         <itemPath>C:/Users/Matthew Fonken/Desktop/CamMod/CamMod/firmware/src/centroid.h</itemPath>
+        <itemPath>C:/Users/Matthew Fonken/Desktop/camera-module/CamMod/firmware/src/ov9712.h</itemPath>
       </logicalFolder>
       <logicalFolder name="f1" displayName="framework" projectFiles="true">
         <logicalFolder name="f1" displayName="driver" projectFiles="true">
