@@ -1,13 +1,8 @@
 #ifndef _CENTROID_H    /* Guard against multiple inclusion */
 #define _CENTROID_H
 
+#include <stdint.h>
 
-
-/* Provide C++ Compatibility */
-#ifdef __cplusplus
-extern "C" {
-#endif
-    #include <stdint.h>
 #define MAX_BLOBS       10
 #define MAX_GAP         3
     
@@ -35,12 +30,8 @@ uint16_t    CENTROIDS_HEIGHT;
 uint8_t     CENTROIDS_SKIP;
     
 uint8_t getBlobId(uint16_t x, uint16_t y, uint16_t n_c, uint8_t num_blobs);
-void    getCentroids( uint8_t *image_line, uint16_t line_number );
-void    initCentroids( uint16_t width, uint16_t height, uint8_t skip  );
+void    getCentroids( uint8_t *image_line, uint16_t line_number, uint8_t skip );
+void    initCentroids( uint16_t width, uint16_t height );
 
-    /* Provide C++ Compatibility */
-#ifdef __cplusplus
-}
-#endif
 
 #endif /* _EXAMPLE_FILE_NAME_H */
