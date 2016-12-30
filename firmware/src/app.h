@@ -18,6 +18,7 @@
     are defined here for convenience.
 *******************************************************************************/
 
+//<editor-fold defaultstate="collapsed" desc="Copyright Details">
 //DOM-IGNORE-BEGIN
 /*******************************************************************************
 Copyright (c) 2013-2014 released Microchip Technology Inc.  All rights reserved.
@@ -42,23 +43,26 @@ SUBSTITUTE GOODS, TECHNOLOGY, SERVICES, OR ANY CLAIMS BY THIRD PARTIES
 (INCLUDING BUT NOT LIMITED TO ANY DEFENSE THEREOF), OR OTHER SIMILAR COSTS.
  *******************************************************************************/
 //DOM-IGNORE-END
+//</editor-fold>
 
 #ifndef _APP_H
 #define _APP_H
 
+//<editor-fold defaultstate="collapsed" desc="Included Files">
 // *****************************************************************************
 // *****************************************************************************
 // Section: Included Files
 // *****************************************************************************
 // *****************************************************************************
-
 #include <stdint.h>
 #include <stdbool.h>
 #include <stddef.h>
 #include <stdlib.h>
 #include "system_config.h"
 #include "system_definitions.h"
+//</editor-fold>
 
+//<editor-fold defaultstate="collapsed" desc="C++ Compatibility">
 // DOM-IGNORE-BEGIN
 #ifdef __cplusplus  // Provide C++ Compatibility
 
@@ -66,54 +70,37 @@ extern "C" {
 
 #endif
 // DOM-IGNORE-END 
-
+//</editor-fold>
+    
+//<editor-fold defaultstate="collapsed" desc="Variable Definitions">
+// *****************************************************************************
+// *****************************************************************************
+// Section: Variable Definitions
+// *****************************************************************************
+// *****************************************************************************
+// *****************************************************************************
+#define APP_CAMERA_WIDTH            1280 * 3
+#define APP_CAMERA_HEIGHT           800
+#define APP_FRAME_WIDTH             30
+#define APP_FRAME_HEIGHT            32
+#define APP_FRAME_HEIGHT_RGGB       APP_FRAME_HEIGHT * 2
+#define APP_FRAME_LINE_DIV          ( APP_CAMERA_WIDTH / APP_FRAME_WIDTH )
+#define APP_FRAME_ROW_DIV           ( APP_CAMERA_HEIGHT / APP_FRAME_HEIGHT ) 
+//</editor-fold>
+    
+//<editor-fold defaultstate="collapsed" desc="Type Definitions">
 // *****************************************************************************
 // *****************************************************************************
 // Section: Type Definitions
 // *****************************************************************************
 // *****************************************************************************
-
-// *****************************************************************************
-/* Application states
-
-  Summary:
-    Application states enumeration
-
-  Description:
-    This enumeration defines the valid application states.  These states
-    determine the behavior of the application at various times.
-*/
-
 typedef enum
 {
 	/* Application's state machine's initial state. */
 	APP_STATE_INIT=0,
+            
 	APP_STATE_SERVICE_TASKS,
-    APP_FRAME_DONE,
-	/* TODO: Define states used by the application state machine. */
-
 } APP_STATES;
-
-
-// *****************************************************************************
-/* Application Data
-
-  Summary:
-    Holds application data
-
-  Description:
-    This structure holds the application's data.
-
-  Remarks:
-    Application strings and buffers are be defined outside this structure.
- */
-#define APP_CAMERA_WIDTH            1280 * 3
-#define APP_CAMERA_HEIGHT           800
-#define APP_FRAME_WIDTH             30
-#define APP_FRAME_HEIGHT            32
-#define APP_FRAME_HEIGHT_RGB        APP_FRAME_HEIGHT * 3
-#define APP_FRAME_LINE_DIV          ( APP_CAMERA_WIDTH / APP_FRAME_WIDTH )
-#define APP_FRAME_ROW_DIV           ( APP_CAMERA_HEIGHT / APP_FRAME_HEIGHT ) 
 
 typedef struct
 {
@@ -122,103 +109,39 @@ typedef struct
     DRV_HANDLE                          drvI2CHandle;
     DRV_HANDLE                          drvUSARTHandle;
     SYS_DMA_CHANNEL_HANDLE              sysDMAHandle;   
-    
-    
     uint8_t                             ramBuff[APP_CAMERA_WIDTH];
 
 } APP_DATA;
 
-// *****************************************************************************
-// *****************************************************************************
-// Section: Application Callback Routines
-// *****************************************************************************
-// *****************************************************************************
-/* These routines are called by drivers when certain events occur.
-*/
-	
+
+//</editor-fold>
+
+//<editor-fold defaultstate="collapsed" desc="Application Function Prototypes">
 // *****************************************************************************
 // *****************************************************************************
 // Section: Application Initialization and State Machine Functions
 // *****************************************************************************
 // *****************************************************************************
-
-/*******************************************************************************
-  Function:
-    void APP_Initialize ( void )
-
-  Summary:
-     MPLAB Harmony application initialization routine.
-
-  Description:
-    This function initializes the Harmony application.  It places the 
-    application in its initial state and prepares it to run so that its 
-    APP_Tasks function can be called.
-
-  Precondition:
-    All other system initialization routines should be called before calling
-    this routine (in "SYS_Initialize").
-
-  Parameters:
-    None.
-
-  Returns:
-    None.
-
-  Example:
-    <code>
-    APP_Initialize();
-    </code>
-
-  Remarks:
-    This routine must be called from the SYS_Initialize function.
-*/
-
-void APP_Initialize ( void );
+void APP_Initialize(                  void );
+void Camera_Initalize(                void );
+void APP_Tasks(                       void );
 void APP_Line_Done_Interrupt_Handler( void );
-void APP_VSYNC_Interrupt_Handler( void );
-void APP_HSYNC_Interrupt_Handler( void );
-void APP_PCLK_Interrupt_Handler( void );
-void delay( int count );
-/*******************************************************************************
-  Function:
-    void APP_Tasks ( void )
-
-  Summary:
-    MPLAB Harmony Demo application tasks function
-
-  Description:
-    This routine is the Harmony Demo application's tasks function.  It
-    defines the application's state machine and core logic.
-
-  Precondition:
-    The system and application initialization ("SYS_Initialize") should be
-    called before calling this.
-
-  Parameters:
-    None.
-
-  Returns:
-    None.
-
-  Example:
-    <code>
-    APP_Tasks();
-    </code>
-
-  Remarks:
-    This routine must be called from SYS_Tasks() routine.
- */
-
-void APP_Tasks( void );
-
+void APP_VSYNC_Interrupt_Handler(     void );
+void APP_HSYNC_Interrupt_Handler(     void );
+void APP_PCLK_Interrupt_Handler(      void );
+void delay(                            int );
+void printChar(                    uint8_t );
+//</editor-fold>
 
 #endif /* _APP_H */
 
+//<editor-fold defaultstate="collapsed" desc="C++ Compatibility">
 //DOM-IGNORE-BEGIN
 #ifdef __cplusplus
 }
 #endif
 //DOM-IGNORE-END
+//</editor-fold>
 
 /*******************************************************************************
  End of File

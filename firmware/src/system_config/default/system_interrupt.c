@@ -97,26 +97,11 @@ void __ISR(_UART_1_VECTOR, ipl1AUTO) _IntHandlerDrvUsartInstance0(void)
     DRV_USART_TasksReceive(sysObj.drvUsart0);
     DRV_USART_TasksError(sysObj.drvUsart0);
 }
- 
- 
- 
 
- 
-
- 
-
- 
-
- 
-
- 
- 
 void __ISR(_DMA0_VECTOR, ipl5AUTO) _IntHandlerSysDmaCh0(void)
 {          
     SYS_DMA_TasksISR(sysObj.sysDma, DMA_CHANNEL_0);
 }
-
-
 
 void __ISR(_I2C_2_VECTOR, ipl6AUTO) _IntHandlerDrvI2CInstance0(void)
 {
@@ -124,19 +109,6 @@ void __ISR(_I2C_2_VECTOR, ipl6AUTO) _IntHandlerDrvI2CInstance0(void)
  
 }
          
- 
-   
-  
-   
-   
-   
-  
- 
-
-  
-  
-  
-  
 /*******************************************************************************
  End of File
 */

@@ -1,18 +1,14 @@
+/*******************************************************************************
+ * File Name: ov9712.h
+ * Author: Matthew Fonken
+ ******************************************************************************/
+
 #ifndef _OV9712_H    /* Guard against multiple inclusion */
 #define _OV9712_H
-
-#ifdef __cplusplus
-extern "C" {
-#endif
-/*
- * cam_regs.h
- *
- * Created: 9/21/2016 12:15:28 PM
- *  Author: Matthew Fonken
- */ 
-
-#define OV9712_ADDR  0x60
     
+#define OV9712_ADDR  0x60
+   
+//<editor-fold defaultstate="collapsed" desc="OV9712 Registers">  
 #define GAIN		 0x00
 #define BLUE		 0x01
 #define RED          0x02
@@ -37,9 +33,9 @@ extern "C" {
 #define COM10		 0x15
 #define AECH		 0x16
 #define HSTART		 0x17
-#define AHsize		 0x18
+#define AHSIZE		 0x18
 #define VSTART		 0x19
-#define AVsize		 0x1a
+#define AVSIZE		 0x1a
 #define PSHIFT		 0x1b
 #define MIDH		 0x1c
 #define MIDL		 0x1d
@@ -74,8 +70,8 @@ extern "C" {
 #define REG43		 0x43
 #define ROFFS		 0x44
 #define BOFFS		 0x45
-#define GrOFFS		 0x46
-#define GbOFFS		 0x47
+#define GROFFS		 0x46
+#define GBOFFS		 0x47
 #define HOFFS		 0x48
 #define REG49		 0x49
 #define REG4A		 0x4a
@@ -163,16 +159,22 @@ extern "C" {
 #define DVP_CTRL_12	 0xd4
 #define SC_CTRL_0	 0xd6
 #define ENDR		 0xff
+//</editor-fold>
 
-#ifndef CAM_REGS_H_
-#define CAM_REGS_H_
-
+//<editor-fold defaultstate="collapsed" desc="Important Terms">  
 /*	TERMS *
-	* AEC - Auto Exposure Control
-	* AGC - Auto Gain Control
-	* BLC - Black level Calibration
-	**/
+* AEC - Auto Exposure Control
+* AGC - Auto Gain Control
+* BLC - Black level Calibration
+**/
+//</editor-fold>
 
+//<editor-fold defaultstate="collapsed" desc="Type Definitions">
+// *****************************************************************************
+// *****************************************************************************
+// Section: Type Definitions
+// *****************************************************************************
+// *****************************************************************************
 typedef struct _cam_register_t
 {
     uint8_t id;
@@ -182,11 +184,11 @@ typedef struct _cam_register_t
 cam_register_t OV9712_regs[] =
 {
 /* Clock Selection */
-	{REG5C,			0x79}, // [6:5]PLL Pre-divider - /1(b0x), /2(b10), or /4(b11)|[4:0]Pll-multiplier CLK2=CLK1 x (32-[4:0])
-	{REG5D,         0xf4}, // [5:4]Output drive capability - 1x(b00), 2x(b01), 3x(b10), or 4x(b11)
+	//{REG5C,			0x79}, // [6:5]PLL Pre-divider - /1(b0x), /2(b10), or /4(b11)|[4:0]Pll-multiplier CLK2=CLK1 x (32-[4:0])
+	//{REG5D,         0xf4}, // [5:4]Output drive capability - 1x(b00), 2x(b01), 3x(b10), or 4x(b11)
 	{DVP_CTRL_00,	0xb0}, // [7:6]VSYNC - vsync_old(b00), vsync_new(b01), or vsync3(b10)|[5]pclk_gate_en|[4]vsync_gate|[3]vsync3_w_sel|[2]pclk reverse|[1]href reverse|[0]vsync reverse
-    {COM7,          0x42}, // [1]Color bar with pixel overlay
-    {DSP_CTRL_1,	0x8a}, // [7]SMPH Mean enable|[3]Color bar without pixel overlay|[1:0]Patterns
+    //{COM7,          0x40}, // [1]Color bar with pixel overlay
+    //{DSP_CTRL_1,	0x2a}, // [7]SMPH Mean enable|[3]Color bar without pixel overlay|[1:0]Patterns
     {ENDR}
 };
 
@@ -229,8 +231,8 @@ cam_register_t dummy[] =
     {HOFFS,         0x00}, // [7:6]BLC offset for Gb[9:8]|[5:4]BLC offset for Gr[9:8]|[3:2]BLC offset for B[9:8]|[1:0]BLC offset for R[9:8]
     {ROFFS,         0x00}, // [7:0]BLC offset for R[7:0]
     {BOFFS,         0x00}, // [7:0]BLC offset for B[7:0]
-    {GrOFFS,        0x00}, // [7:0]BLC offset for Gr[7:0]
-    {GbOFFS,        0x00}, // [7:0]BLC offset for Gb[7:0]
+    {GROFFS,        0x00}, // [7:0]BLC offset for Gr[7:0]
+    {GBOFFS,        0x00}, // [7:0]BLC offset for Gb[7:0]
 
 /* Digital Gain Control */
     {GAIN,          0x00}, // [7]Apply gain if gain >= 2x(b0), Apply gain if gain >= 4x(b1)
@@ -321,11 +323,7 @@ cam_register_t dummy[] =
 
 	{ENDR}
 };
-
-#endif /* CAM_REGS_H_ */
-#ifdef __cplusplus
-}
-#endif
+//</editor-fold>
 
 #endif /* _EXAMPLE_FILE_NAME_H */
 

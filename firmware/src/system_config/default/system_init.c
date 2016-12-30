@@ -58,7 +58,6 @@ SUBSTITUTE GOODS, TECHNOLOGY, SERVICES, OR ANY CLAIMS BY THIRD PARTIES
 // <editor-fold defaultstate="collapsed" desc="Configuration Bits">
 
 /*** DEVCFG0 ***/
-
 #pragma config DEBUG =      OFF
 #pragma config JTAGEN =     OFF
 #pragma config ICESEL =     ICS_PGx1
@@ -67,7 +66,6 @@ SUBSTITUTE GOODS, TECHNOLOGY, SERVICES, OR ANY CLAIMS BY THIRD PARTIES
 #pragma config CP =         OFF
 
 /*** DEVCFG1 ***/
-
 #pragma config FNOSC =      FRCPLL
 #pragma config FSOSCEN =    OFF
 #pragma config IESO =       OFF
@@ -79,13 +77,13 @@ SUBSTITUTE GOODS, TECHNOLOGY, SERVICES, OR ANY CLAIMS BY THIRD PARTIES
 #pragma config FWDTEN =     OFF
 #pragma config WINDIS =     OFF
 #pragma config FWDTWINSZ =  WINSZ_50
-/*** DEVCFG2 ***/
 
+/*** DEVCFG2 ***/
 #pragma config FPLLIDIV =   DIV_2
 #pragma config FPLLMUL =    MUL_24
 #pragma config FPLLODIV =   DIV_2
-/*** DEVCFG3 ***/
 
+/*** DEVCFG3 ***/
 #pragma config USERID =     0xffff
 #pragma config PMDL1WAY =   ON
 #pragma config IOL1WAY =    ON
@@ -163,6 +161,7 @@ const SYS_DEVCON_INIT sysDevconInit =
 };
 
 // </editor-fold>
+
 //<editor-fold defaultstate="collapsed" desc="SYS_DMA Initialization Data">
 /*** System DMA Initialization Data ***/
 
@@ -213,22 +212,17 @@ void SYS_Initialize ( void* data )
 
     /* Initialize Drivers */
     sysObj.drvI2C0 = DRV_I2C_Initialize(DRV_I2C_INDEX_0, (SYS_MODULE_INIT *)&drvI2C0InitData);
-
-
     SYS_INT_VectorPrioritySet(INT_VECTOR_I2C2, INT_PRIORITY_LEVEL6);
     SYS_INT_VectorSubprioritySet(INT_VECTOR_I2C2, INT_SUBPRIORITY_LEVEL1);
 
-
-
-
-    /*Initialize PMP0 */
+    /* Initialize PMP0 */
     DRV_PMP0_Initialize();
     DRV_PMP0_ModeConfig();
 
+    /* Initialize DMA */
     sysObj.sysDma = SYS_DMA_Initialize((SYS_MODULE_INIT *)&sysDmaInit);
     SYS_INT_VectorPrioritySet(INT_VECTOR_DMA0, INT_PRIORITY_LEVEL5);
     SYS_INT_VectorSubprioritySet(INT_VECTOR_DMA0, INT_SUBPRIORITY_LEVEL0);
-
     SYS_INT_SourceEnable(INT_SOURCE_DMA_0);
 
 
@@ -236,32 +230,36 @@ void SYS_Initialize ( void* data )
     SYS_INT_VectorPrioritySet(INT_VECTOR_UART1, INT_PRIORITY_LEVEL1);
     SYS_INT_VectorSubprioritySet(INT_VECTOR_UART1, INT_SUBPRIORITY_LEVEL0);
 
+    /****************************************************************************************************************/
     /* Initialize System Services */
-
+    
     /*** Interrupt Service Initialization Code ***/
     SYS_INT_Initialize();
 
+    /* VSYNC Interrupt */
     /*Setup the INT_SOURCE_EXTERNAL_3 and Enable it*/
     SYS_INT_VectorPrioritySet(INT_VECTOR_INT3, INT_PRIORITY_LEVEL3);
     SYS_INT_VectorSubprioritySet(INT_VECTOR_INT3, INT_SUBPRIORITY_LEVEL3);
     SYS_INT_ExternalInterruptTriggerSet(INT_EXTERNAL_INT_SOURCE3,INT_EDGE_TRIGGER_RISING);
-    //SYS_INT_SourceEnable(INT_SOURCE_EXTERNAL_3);
+    //SYS_INT_SourceEnable(INT_SOURCE_EXTERNAL_3); // Enabled as needed
 
+    /* HREF Interrupt */
     /*Setup the INT_SOURCE_EXTERNAL_1 and Enable it*/
     SYS_INT_VectorPrioritySet(INT_VECTOR_INT1, INT_PRIORITY_LEVEL3);
     SYS_INT_VectorSubprioritySet(INT_VECTOR_INT1, INT_SUBPRIORITY_LEVEL2);
     SYS_INT_ExternalInterruptTriggerSet(INT_EXTERNAL_INT_SOURCE1,INT_EDGE_TRIGGER_RISING);
-    //SYS_INT_SourceEnable(INT_SOURCE_EXTERNAL_1);
+    //SYS_INT_SourceEnable(INT_SOURCE_EXTERNAL_1); // Enabled as needed
 
+    
+    /* PCLK Interrupt */
     /*Setup the INT_SOURCE_EXTERNAL_4 and Enable it*/
     SYS_INT_VectorPrioritySet(INT_VECTOR_INT4, INT_PRIORITY_LEVEL3);
     SYS_INT_VectorSubprioritySet(INT_VECTOR_INT4, INT_SUBPRIORITY_LEVEL1);
     SYS_INT_ExternalInterruptTriggerSet(INT_EXTERNAL_INT_SOURCE4,INT_EDGE_TRIGGER_RISING);
-    //SYS_INT_SourceEnable(INT_SOURCE_EXTERNAL_4);
+    //SYS_INT_SourceEnable(INT_SOURCE_EXTERNAL_4); // Enabled as needed
 
-
-
-
+    /****************************************************************************************************************/
+    
     /* Initialize Middleware */
 
     /* Enable Global Interrupts */
