@@ -5,7 +5,7 @@ Optional file libmchp_peripheral_32MX170F256B.a not found
 Archive member included because of file (symbol)
 
 c:/program files (x86)/microchip/xc32/v1.42/bin/bin/../../lib/gcc/pic32mx/4.8.3\libgcc.a(floatunsisf.o)
-                              build/default/production/_ext/169316842/centroid.o (__floatunsisf)
+                              build/default/production/_ext/1078824437/centroid.o (__floatunsisf)
 c:/program files (x86)/microchip/xc32/v1.42/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib\libpic32.a(default-bootstrap-exception-handler.o)
                               c:/program files (x86)/microchip/xc32/v1.42/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib/./proc/32MX170F256B/crt0_mips32r2.o (_bootstrap_exception_handler)
 c:/program files (x86)/microchip/xc32/v1.42/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib\libpic32.a(default-on-reset.o)
@@ -93,22 +93,24 @@ c:/program files (x86)/microchip/xc32/v1.42/bin/bin/../../lib/gcc/pic32mx/4.8.3/
 c:/program files (x86)/microchip/xc32/v1.42/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib\libpic32.a(defaultinterrupt.o)
                               c:/program files (x86)/microchip/xc32/v1.42/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib\libpic32.a(vector0.o) (_DefaultInterrupt)
 c:/program files (x86)/microchip/xc32/v1.42/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib\libm.a(fp32div.o)
-                              build/default/production/_ext/169316842/centroid.o (fpdiv)
+                              build/default/production/_ext/1078824437/centroid.o (fpdiv)
 c:/program files (x86)/microchip/xc32/v1.42/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib\libm.a(fp32subadd.o)
-                              build/default/production/_ext/169316842/centroid.o (fpsub)
+                              build/default/production/_ext/1078824437/centroid.o (fpsub)
 c:/program files (x86)/microchip/xc32/v1.42/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib\libm.a(fpcmp.o)
-                              build/default/production/_ext/169316842/centroid.o (fpcmp)
+                              build/default/production/_ext/1078824437/centroid.o (fpcmp)
+c:/program files (x86)/microchip/xc32/v1.42/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib\libm.a(fptoli.o)
+                              build/default/production/_ext/1360937237/app.o (fptosi)
 c:/program files (x86)/microchip/xc32/v1.42/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib\libm.a(fptoul.o)
-                              build/default/production/_ext/169316842/centroid.o (fptoui)
+                              build/default/production/_ext/1078824437/centroid.o (fptoui)
 c:/program files (x86)/microchip/xc32/v1.42/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib\libm.a(sitofp.o)
-                              build/default/production/_ext/169316842/centroid.o (sitofp)
+                              build/default/production/_ext/1078824437/centroid.o (sitofp)
 
 Allocating common symbols
 Common symbol       size              file
 
 CENTROIDS_WIDTH     0x2               build/default/production/_ext/1360937237/app.o
 centroids           0xa4              build/default/production/_ext/1360937237/app.o
-CENTROIDS_SKIP      0x1               build/default/production/_ext/1360937237/app.o
+CENTROIDS_INTERVAL  0x1               build/default/production/_ext/1360937237/app.o
 CENTROIDS_HEIGHT    0x2               build/default/production/_ext/1360937237/app.o
 gDrvI2CCommonDataObj
                     0x3               build/default/production/_ext/1255245923/drv_i2c.o
@@ -128,80 +130,91 @@ section                    address  length [bytes]      (dec)  Description
 -------                 ----------  -------------------------  -----------
 .text.DRV_I2C_Tasks     0x9d000000          0x9c8        2504   
 .text.DRV_I2C_Initializ 0x9d0009c8          0x34c         844   
-.text.SYS_Initialize    0x9d000d14          0x264         612   
-.text.APP_Tasks         0x9d000f78          0x1e8         488   
-.text.DRV_I2C_Transmit  0x9d001160          0x1e4         484   
-.text._DRV_I2C_QueueSlo 0x9d001344          0x1d8         472   
-.text._DRV_USART_Hardwa 0x9d00151c          0x1cc         460   
-.text.DRV_USART_Initial 0x9d0016e8          0x1a0         416   
-.text.SYS_DMA_ChannelSe 0x9d001888          0x16c         364   
-.text.SYS_DMA_ChannelTr 0x9d0019f4          0x15c         348   
-.text._IntHandlerDrvUsa 0x9d001b50          0x150         336   
-.text._IntHandlerExtern 0x9d001ca0          0x140         320   
-.text._IntHandlerExtern 0x9d001de0          0x140         320   
-.text._IntHandlerSysDma 0x9d001f20          0x138         312   
-.text._IntHandlerDrvI2C 0x9d002058          0x134         308   
-.text._IntHandlerCoreSo 0x9d00218c          0x12c         300   
-.text.DRV_USART_Open    0x9d0022b8          0x12c         300   
-.rodata                 0x9d0023e4          0x128         296  Read-only const 
-.text.SYS_PORTS_Initial 0x9d00250c          0x10c         268   
-.text.APP_HSYNC_Interru 0x9d002618           0xf8         248   
-.text.SYS_DMA_TasksISR  0x9d002710           0xf8         248   
-.text.general_exception 0x9d002808           0xdc         220   
-.text.DRV_I2C_Open      0x9d0028e4           0xcc         204   
-.text._DRV_I2C_QueuePus 0x9d0029b0           0xbc         188   
-.text.DRV_USART_TasksEr 0x9d002a6c           0xbc         188   
-.text.Camera_Initialize 0x9d002b28           0xb4         180   
-.text.DRV_USART_TasksTr 0x9d002bdc           0xa4         164   
-.text.DRV_USART_TasksRe 0x9d002c80           0xa4         164   
-.rodata                 0x9d002d24           0x9c         156  Read-only const 
-.text._DRV_I2C_QueuePop 0x9d002dc0           0x9c         156   
-.text.SYS_CLK_Initializ 0x9d002e5c           0x90         144   
-.text._IntHandlerExtern 0x9d002eec           0x88         136   
-.text._DRV_USART_ByteTr 0x9d002f74           0x88         136   
-.dinit                  0x9d002ffc           0x80         128   
-.text._DRV_USART_ByteRe 0x9d00307c           0x70         112   
-.text._DRV_USART_ByteEr 0x9d0030ec           0x70         112   
-.text.DRV_USART_WriteBy 0x9d00315c           0x70         112   
-.text.SYS_DMA_Initializ 0x9d0031cc           0x6c         108   
-.text.SYS_DEVCON_Perfor 0x9d003238           0x5c          92   
-.text.SYS_DMA_ChannelAl 0x9d003294           0x5c          92   
-.text.SYS_DEVCON_System 0x9d0032f0           0x58          88   
-.text.main_entry        0x9d003348           0x54          84   
-.text.APP_VSYNC_Interru 0x9d00339c           0x54          84   
-.text.SYS_INT_SourceDis 0x9d0033f0           0x54          84   
-.text.DRV_USART_ReadByt 0x9d003444           0x50          80   
-.text.SYS_DEVCON_System 0x9d003494           0x48          72   
-.text._bootstrap_except 0x9d0034dc           0x48          72   
-.vector_default         0x9d003524           0x48          72   
-.text.DRV_PMP0_ModeConf 0x9d00356c           0x44          68   
-.text                   0x9d0035b0           0x44          68  App's exec code 
-.text._general_exceptio 0x9d0035f4           0x40          64   
-.text._DRV_I2C_IsQueueE 0x9d003634           0x3c          60   
-.text.DRV_USART_Receive 0x9d003670           0x38          56   
-.text._DRV_I2C_Advance_ 0x9d0036a8           0x30          48   
-.text.SYS_Tasks         0x9d0036d8           0x28          40   
-.text._DRV_USART_Driver 0x9d003700           0x28          40   
-.text.SYS_INT_ExternalI 0x9d003728           0x28          40   
-.text.delay             0x9d003750           0x24          36   
-.text.printChar         0x9d003774           0x24          36   
-.text.main              0x9d003798           0x20          32   
-.text.SYS_DMA_ChannelTr 0x9d0037b8           0x20          32   
-.text.DRV_PMP0_Initiali 0x9d0037d8           0x1c          28   
-.text.initCentroids     0x9d0037f4           0x18          24   
-.text                   0x9d00380c           0x18          24  App's exec code 
-.text.SYS_DEVCON_Initia 0x9d003824           0x14          20   
-.text.SYS_INT_Initializ 0x9d003838           0x14          20   
-.text.APP_Line_Done_Int 0x9d00384c           0x10          16   
-.text.SYS_CLK_SystemFre 0x9d00385c            0xc          12   
-.text.SYS_CLK_Periphera 0x9d003868            0xc          12   
-.text.APP_Initialize    0x9d003874            0xc          12   
-.text.App_Frame_Event_H 0x9d003880            0x8           8   
-.text.DRV_I2C_TransferS 0x9d003888            0x8           8   
-.text.SYS_DEVCON_Tasks  0x9d003890            0x8           8   
-.text._on_reset         0x9d003898            0x8           8   
-.text._on_bootstrap     0x9d0038a0            0x8           8   
-      Total kseg0_program_mem used  :      0x38a8       14504  5.6% of 0x3f000
+.text.fpsubadd          0x9d000d14          0x278         632   
+.text.getBlobId         0x9d000f8c          0x268         616   
+.text.SYS_Initialize    0x9d0011f4          0x264         612   
+.text.fp32div           0x9d001458          0x230         560   
+.text.getCentroids      0x9d001688          0x21c         540   
+.text.APP_Tasks         0x9d0018a4          0x1e8         488   
+.text.DRV_I2C_Transmit  0x9d001a8c          0x1e4         484   
+.text._DRV_I2C_QueueSlo 0x9d001c70          0x1d8         472   
+.text._DRV_USART_Hardwa 0x9d001e48          0x1cc         460   
+.text.DRV_USART_Initial 0x9d002014          0x1a0         416   
+.text.SYS_DMA_ChannelSe 0x9d0021b4          0x16c         364   
+.text.SYS_DMA_ChannelTr 0x9d002320          0x15c         348   
+.text._IntHandlerDrvUsa 0x9d00247c          0x150         336   
+.text._IntHandlerExtern 0x9d0025cc          0x140         320   
+.text._IntHandlerExtern 0x9d00270c          0x140         320   
+.text._IntHandlerSysDma 0x9d00284c          0x138         312   
+.text._IntHandlerDrvI2C 0x9d002984          0x134         308   
+.text._IntHandlerCoreSo 0x9d002ab8          0x12c         300   
+.text.DRV_USART_Open    0x9d002be4          0x12c         300   
+.rodata                 0x9d002d10          0x128         296  Read-only const 
+.text.SYS_PORTS_Initial 0x9d002e38          0x10c         268   
+.text.APP_HSYNC_Interru 0x9d002f44           0xfc         252   
+.text.SYS_DMA_TasksISR  0x9d003040           0xf8         248   
+.text.general_exception 0x9d003138           0xdc         220   
+.text.APP_VSYNC_Interru 0x9d003214           0xd8         216   
+.text.DRV_I2C_Open      0x9d0032ec           0xcc         204   
+.text._DRV_I2C_QueuePus 0x9d0033b8           0xbc         188   
+.text.DRV_USART_TasksEr 0x9d003474           0xbc         188   
+.text.Camera_Initialize 0x9d003530           0xb4         180   
+.text.DRV_USART_TasksTr 0x9d0035e4           0xa4         164   
+.text.DRV_USART_TasksRe 0x9d003688           0xa4         164   
+.rodata                 0x9d00372c           0x9c         156  Read-only const 
+.text._DRV_I2C_QueuePop 0x9d0037c8           0x9c         156   
+.text.fpcmp             0x9d003864           0x9c         156   
+.text.SYS_CLK_Initializ 0x9d003900           0x90         144   
+.text._IntHandlerExtern 0x9d003990           0x88         136   
+.text._DRV_USART_ByteTr 0x9d003a18           0x88         136   
+.text.fptoli            0x9d003aa0           0x80         128   
+.dinit                  0x9d003b20           0x80         128   
+.text.fptoul            0x9d003ba0           0x7c         124   
+.text._DRV_USART_ByteRe 0x9d003c1c           0x70         112   
+.text._DRV_USART_ByteEr 0x9d003c8c           0x70         112   
+.text.DRV_USART_WriteBy 0x9d003cfc           0x70         112   
+.text.SYS_DMA_Initializ 0x9d003d6c           0x6c         108   
+.text.sitofp            0x9d003dd8           0x60          96   
+.text.SYS_DEVCON_Perfor 0x9d003e38           0x5c          92   
+.text.SYS_DMA_ChannelAl 0x9d003e94           0x5c          92   
+.text.SYS_DEVCON_System 0x9d003ef0           0x58          88   
+.text.main_entry        0x9d003f48           0x54          84   
+.text.SYS_INT_SourceDis 0x9d003f9c           0x54          84   
+.text.DRV_USART_ReadByt 0x9d003ff0           0x50          80   
+.text                   0x9d004040           0x4c          76  App's exec code 
+.text.SYS_DEVCON_System 0x9d00408c           0x48          72   
+.text._bootstrap_except 0x9d0040d4           0x48          72   
+.vector_default         0x9d00411c           0x48          72   
+.text.DRV_PMP0_ModeConf 0x9d004164           0x44          68   
+.text.printChar         0x9d0041a8           0x44          68   
+.text                   0x9d0041ec           0x44          68  App's exec code 
+.text._general_exceptio 0x9d004230           0x40          64   
+.text._DRV_I2C_IsQueueE 0x9d004270           0x3c          60   
+.text.DRV_USART_Receive 0x9d0042ac           0x38          56   
+.text.DRV_USART_Transmi 0x9d0042e4           0x34          52   
+.text._DRV_I2C_Advance_ 0x9d004318           0x30          48   
+.text.SYS_Tasks         0x9d004348           0x28          40   
+.text._DRV_USART_Driver 0x9d004370           0x28          40   
+.text.SYS_INT_ExternalI 0x9d004398           0x28          40   
+.text.delay             0x9d0043c0           0x24          36   
+.text.main              0x9d0043e4           0x20          32   
+.text.SYS_DMA_ChannelTr 0x9d004404           0x20          32   
+.text.DRV_PMP0_Initiali 0x9d004424           0x1c          28   
+.text.initCentroids     0x9d004440           0x18          24   
+.text                   0x9d004458           0x18          24  App's exec code 
+.text.SYS_DEVCON_Initia 0x9d004470           0x14          20   
+.text.SYS_INT_Initializ 0x9d004484           0x14          20   
+.text.APP_Line_Done_Int 0x9d004498           0x10          16   
+.text.SYS_CLK_SystemFre 0x9d0044a8            0xc          12   
+.text.SYS_CLK_Periphera 0x9d0044b4            0xc          12   
+.text.APP_Initialize    0x9d0044c0            0xc          12   
+.text.App_Frame_Event_H 0x9d0044cc            0x8           8   
+.text.DRV_I2C_TransferS 0x9d0044d4            0x8           8   
+.text.SYS_DEVCON_Tasks  0x9d0044dc            0x8           8   
+.text._on_reset         0x9d0044e4            0x8           8   
+.text._on_bootstrap     0x9d0044ec            0x8           8   
+.rodata                 0x9d0044f4            0x4           4  Read-only const 
+      Total kseg0_program_mem used  :      0x44f8       17656  6.8% of 0x3f000
 
 kseg0 Boot-Memory Usage
 section                    address  length [bytes]      (dec)  Description
@@ -265,7 +278,7 @@ section                    address  length [bytes]      (dec)  Description
 .bev_excpt              0xbfc00380           0x10          16  BEV-Exception 
          Total kseg1_boot_mem used  :       0x1f4         500  42.8% of 0x490
         --------------------------------------------------------------------------
-         Total Program Memory used  :      0x3c0c       15372  5.8% of 0x40490
+         Total Program Memory used  :      0x485c       18524  7.0% of 0x40490
         --------------------------------------------------------------------------
 
 
@@ -407,19 +420,16 @@ Discarded input sections
                 0x00000000       0x18 build/default/production/_ext/1360937237/app.o
  .text.disablePCLKINT
                 0x00000000       0x1c build/default/production/_ext/1360937237/app.o
+ .text.transferAddDMA
+                0x00000000       0x44 build/default/production/_ext/1360937237/app.o
  .text          0x00000000        0x0 build/default/production/_ext/1360937237/main.o
  .data          0x00000000        0x0 build/default/production/_ext/1360937237/main.o
  .bss           0x00000000        0x0 build/default/production/_ext/1360937237/main.o
  .reginfo       0x00000000       0x18 build/default/production/_ext/1360937237/main.o
- .text          0x00000000        0x0 build/default/production/_ext/169316842/centroid.o
- .data          0x00000000        0x0 build/default/production/_ext/169316842/centroid.o
- .bss           0x00000000        0x0 build/default/production/_ext/169316842/centroid.o
- .reginfo       0x00000000       0x18 build/default/production/_ext/169316842/centroid.o
- .text.getBlobId
-                0x00000000      0x240 build/default/production/_ext/169316842/centroid.o
- .text.getCentroids
-                0x00000000      0x228 build/default/production/_ext/169316842/centroid.o
- .rodata        0x00000000        0x4 build/default/production/_ext/169316842/centroid.o
+ .text          0x00000000        0x0 build/default/production/_ext/1078824437/centroid.o
+ .data          0x00000000        0x0 build/default/production/_ext/1078824437/centroid.o
+ .bss           0x00000000        0x0 build/default/production/_ext/1078824437/centroid.o
+ .reginfo       0x00000000       0x18 build/default/production/_ext/1078824437/centroid.o
  .text          0x00000000        0x0 build/default/production/_ext/1255245923/drv_i2c.o
  .data          0x00000000        0x0 build/default/production/_ext/1255245923/drv_i2c.o
  .reginfo       0x00000000       0x18 build/default/production/_ext/1255245923/drv_i2c.o
@@ -502,8 +512,6 @@ Discarded input sections
                 0x00000000       0x28 build/default/production/_ext/116167346/drv_usart_byte_model.o
  .text.DRV_USART_TransmitBufferSizeGet
                 0x00000000       0x28 build/default/production/_ext/116167346/drv_usart_byte_model.o
- .text.DRV_USART_TransmitBufferIsFull
-                0x00000000       0x34 build/default/production/_ext/116167346/drv_usart_byte_model.o
  .text          0x00000000        0x0 build/default/production/_ext/565619703/sys_devcon.o
  .data          0x00000000        0x0 build/default/production/_ext/565619703/sys_devcon.o
  .bss           0x00000000        0x0 build/default/production/_ext/565619703/sys_devcon.o
@@ -594,7 +602,6 @@ Discarded input sections
  .data          0x00000000        0x0 c:/program files (x86)/microchip/xc32/v1.42/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib/./proc/32MX170F256B\processor.o
  .bss           0x00000000        0x0 c:/program files (x86)/microchip/xc32/v1.42/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib/./proc/32MX170F256B\processor.o
  .reginfo       0x00000000       0x18 c:/program files (x86)/microchip/xc32/v1.42/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib/./proc/32MX170F256B\processor.o
- .text          0x00000000       0x4c c:/program files (x86)/microchip/xc32/v1.42/bin/bin/../../lib/gcc/pic32mx/4.8.3\libgcc.a(floatunsisf.o)
  .data          0x00000000        0x0 c:/program files (x86)/microchip/xc32/v1.42/bin/bin/../../lib/gcc/pic32mx/4.8.3\libgcc.a(floatunsisf.o)
  .bss           0x00000000        0x0 c:/program files (x86)/microchip/xc32/v1.42/bin/bin/../../lib/gcc/pic32mx/4.8.3\libgcc.a(floatunsisf.o)
  .reginfo       0x00000000       0x18 c:/program files (x86)/microchip/xc32/v1.42/bin/bin/../../lib/gcc/pic32mx/4.8.3\libgcc.a(floatunsisf.o)
@@ -773,28 +780,26 @@ Discarded input sections
  .data          0x00000000        0x0 c:/program files (x86)/microchip/xc32/v1.42/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib\libm.a(fp32div.o)
  .bss           0x00000000        0x0 c:/program files (x86)/microchip/xc32/v1.42/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib\libm.a(fp32div.o)
  .reginfo       0x00000000       0x18 c:/program files (x86)/microchip/xc32/v1.42/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib\libm.a(fp32div.o)
- .text.fp32div  0x00000000      0x230 c:/program files (x86)/microchip/xc32/v1.42/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib\libm.a(fp32div.o)
  .text          0x00000000        0x0 c:/program files (x86)/microchip/xc32/v1.42/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib\libm.a(fp32subadd.o)
  .data          0x00000000        0x0 c:/program files (x86)/microchip/xc32/v1.42/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib\libm.a(fp32subadd.o)
  .bss           0x00000000        0x0 c:/program files (x86)/microchip/xc32/v1.42/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib\libm.a(fp32subadd.o)
  .reginfo       0x00000000       0x18 c:/program files (x86)/microchip/xc32/v1.42/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib\libm.a(fp32subadd.o)
- .text.fpsubadd
-                0x00000000      0x278 c:/program files (x86)/microchip/xc32/v1.42/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib\libm.a(fp32subadd.o)
  .text          0x00000000        0x0 c:/program files (x86)/microchip/xc32/v1.42/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib\libm.a(fpcmp.o)
  .data          0x00000000        0x0 c:/program files (x86)/microchip/xc32/v1.42/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib\libm.a(fpcmp.o)
  .bss           0x00000000        0x0 c:/program files (x86)/microchip/xc32/v1.42/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib\libm.a(fpcmp.o)
  .reginfo       0x00000000       0x18 c:/program files (x86)/microchip/xc32/v1.42/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib\libm.a(fpcmp.o)
- .text.fpcmp    0x00000000       0x9c c:/program files (x86)/microchip/xc32/v1.42/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib\libm.a(fpcmp.o)
+ .text          0x00000000        0x0 c:/program files (x86)/microchip/xc32/v1.42/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib\libm.a(fptoli.o)
+ .data          0x00000000        0x0 c:/program files (x86)/microchip/xc32/v1.42/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib\libm.a(fptoli.o)
+ .bss           0x00000000        0x0 c:/program files (x86)/microchip/xc32/v1.42/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib\libm.a(fptoli.o)
+ .reginfo       0x00000000       0x18 c:/program files (x86)/microchip/xc32/v1.42/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib\libm.a(fptoli.o)
  .text          0x00000000        0x0 c:/program files (x86)/microchip/xc32/v1.42/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib\libm.a(fptoul.o)
  .data          0x00000000        0x0 c:/program files (x86)/microchip/xc32/v1.42/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib\libm.a(fptoul.o)
  .bss           0x00000000        0x0 c:/program files (x86)/microchip/xc32/v1.42/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib\libm.a(fptoul.o)
  .reginfo       0x00000000       0x18 c:/program files (x86)/microchip/xc32/v1.42/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib\libm.a(fptoul.o)
- .text.fptoul   0x00000000       0x7c c:/program files (x86)/microchip/xc32/v1.42/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib\libm.a(fptoul.o)
  .text          0x00000000        0x0 c:/program files (x86)/microchip/xc32/v1.42/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib\libm.a(sitofp.o)
  .data          0x00000000        0x0 c:/program files (x86)/microchip/xc32/v1.42/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib\libm.a(sitofp.o)
  .bss           0x00000000        0x0 c:/program files (x86)/microchip/xc32/v1.42/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib\libm.a(sitofp.o)
  .reginfo       0x00000000       0x18 c:/program files (x86)/microchip/xc32/v1.42/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib\libm.a(sitofp.o)
- .text.sitofp   0x00000000       0x60 c:/program files (x86)/microchip/xc32/v1.42/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib\libm.a(sitofp.o)
 
 Memory Configuration
 
@@ -826,7 +831,7 @@ LOAD build/default/production/_ext/1688732426/system_exceptions.o
 LOAD build/default/production/_ext/1688732426/system_tasks.o
 LOAD build/default/production/_ext/1360937237/app.o
 LOAD build/default/production/_ext/1360937237/main.o
-LOAD build/default/production/_ext/169316842/centroid.o
+LOAD build/default/production/_ext/1078824437/centroid.o
 LOAD build/default/production/_ext/1255245923/drv_i2c.o
 LOAD build/default/production/_ext/116167346/drv_usart.o
 LOAD build/default/production/_ext/116167346/drv_usart_byte_model.o
@@ -1397,9 +1402,9 @@ END GROUP
  *(.scommon)
  .scommon       0xa000001c        0x6 build/default/production/_ext/1360937237/app.o
                 0xa000001c                CENTROIDS_WIDTH
-                0xa000001e                CENTROIDS_SKIP
+                0xa000001e                CENTROIDS_INTERVAL
                 0xa0000020                CENTROIDS_HEIGHT
- .scommon       0xa0000022        0x0 build/default/production/_ext/169316842/centroid.o
+ .scommon       0xa0000022        0x0 build/default/production/_ext/1078824437/centroid.o
  *fill*         0xa0000022        0x2 
  .scommon       0xa0000024        0x3 build/default/production/_ext/1255245923/drv_i2c.o
                 0xa0000024                gDrvI2CCommonDataObj
@@ -1460,7 +1465,7 @@ END GROUP
  .mdebug.abi32  0xa00010e8        0x0 build/default/production/_ext/1688732426/system_tasks.o
  .mdebug.abi32  0xa00010e8        0x0 build/default/production/_ext/1360937237/app.o
  .mdebug.abi32  0xa00010e8        0x0 build/default/production/_ext/1360937237/main.o
- .mdebug.abi32  0xa00010e8        0x0 build/default/production/_ext/169316842/centroid.o
+ .mdebug.abi32  0xa00010e8        0x0 build/default/production/_ext/1078824437/centroid.o
  .mdebug.abi32  0xa00010e8        0x0 build/default/production/_ext/1255245923/drv_i2c.o
  .mdebug.abi32  0xa00010e8        0x0 build/default/production/_ext/116167346/drv_usart.o
  .mdebug.abi32  0xa00010e8        0x0 build/default/production/_ext/116167346/drv_usart_byte_model.o
@@ -1525,7 +1530,7 @@ END GROUP
  .comment       0x00000000       0x3d build/default/production/_ext/1688732426/system_tasks.o
  .comment       0x00000000       0x3d build/default/production/_ext/1360937237/app.o
  .comment       0x00000000       0x3d build/default/production/_ext/1360937237/main.o
- .comment       0x00000000       0x3d build/default/production/_ext/169316842/centroid.o
+ .comment       0x00000000       0x3d build/default/production/_ext/1078824437/centroid.o
  .comment       0x00000000       0x3d build/default/production/_ext/1255245923/drv_i2c.o
  .comment       0x00000000       0x3d build/default/production/_ext/116167346/drv_usart.o
  .comment       0x00000000       0x3d build/default/production/_ext/116167346/drv_usart_byte_model.o
@@ -1551,7 +1556,7 @@ END GROUP
 .debug_sfnames
  *(.debug_sfnames)
 
-.debug_aranges  0x00000000      0x790
+.debug_aranges  0x00000000      0x798
  *(.debug_aranges)
  .debug_aranges
                 0x00000000       0x40 build/default/production/_ext/664138601/drv_pmp_static.o
@@ -1568,40 +1573,40 @@ END GROUP
  .debug_aranges
                 0x00000228       0x20 build/default/production/_ext/1688732426/system_tasks.o
  .debug_aranges
-                0x00000248       0x70 build/default/production/_ext/1360937237/app.o
+                0x00000248       0x78 build/default/production/_ext/1360937237/app.o
  .debug_aranges
-                0x000002b8       0x20 build/default/production/_ext/1360937237/main.o
+                0x000002c0       0x20 build/default/production/_ext/1360937237/main.o
  .debug_aranges
-                0x000002d8       0x30 build/default/production/_ext/169316842/centroid.o
+                0x000002e0       0x30 build/default/production/_ext/1078824437/centroid.o
  .debug_aranges
-                0x00000308      0x100 build/default/production/_ext/1255245923/drv_i2c.o
+                0x00000310      0x100 build/default/production/_ext/1255245923/drv_i2c.o
  .debug_aranges
-                0x00000408       0xd8 build/default/production/_ext/116167346/drv_usart.o
+                0x00000410       0xd8 build/default/production/_ext/116167346/drv_usart.o
  .debug_aranges
-                0x000004e0       0x48 build/default/production/_ext/116167346/drv_usart_byte_model.o
+                0x000004e8       0x48 build/default/production/_ext/116167346/drv_usart_byte_model.o
  .debug_aranges
-                0x00000528       0x78 build/default/production/_ext/565619703/sys_devcon.o
+                0x00000530       0x78 build/default/production/_ext/565619703/sys_devcon.o
  .debug_aranges
-                0x000005a0       0x20 build/default/production/_ext/565619703/sys_devcon_pic32mx.o
+                0x000005a8       0x20 build/default/production/_ext/565619703/sys_devcon_pic32mx.o
  .debug_aranges
-                0x000005c0       0xe8 build/default/production/_ext/1515734680/sys_dma.o
+                0x000005c8       0xe8 build/default/production/_ext/1515734680/sys_dma.o
  .debug_aranges
-                0x000006a8       0x48 build/default/production/_ext/1704461839/sys_int_pic32.o
+                0x000006b0       0x48 build/default/production/_ext/1704461839/sys_int_pic32.o
  .debug_aranges
-                0x000006f0       0x20 c:/program files (x86)/microchip/xc32/v1.42/bin/bin/../../lib/gcc/pic32mx/4.8.3\libgcc.a(floatunsisf.o)
+                0x000006f8       0x20 c:/program files (x86)/microchip/xc32/v1.42/bin/bin/../../lib/gcc/pic32mx/4.8.3\libgcc.a(floatunsisf.o)
  .debug_aranges
-                0x00000710       0x20 c:/program files (x86)/microchip/xc32/v1.42/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib\libpic32.a(default-bootstrap-exception-handler.o)
+                0x00000718       0x20 c:/program files (x86)/microchip/xc32/v1.42/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib\libpic32.a(default-bootstrap-exception-handler.o)
  .debug_aranges
-                0x00000730       0x20 c:/program files (x86)/microchip/xc32/v1.42/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib\libpic32.a(default-on-reset.o)
+                0x00000738       0x20 c:/program files (x86)/microchip/xc32/v1.42/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib\libpic32.a(default-on-reset.o)
  .debug_aranges
-                0x00000750       0x20 c:/program files (x86)/microchip/xc32/v1.42/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib\libpic32.a(default-on-bootstrap.o)
+                0x00000758       0x20 c:/program files (x86)/microchip/xc32/v1.42/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib\libpic32.a(default-on-bootstrap.o)
  .debug_aranges
-                0x00000770       0x20 c:/program files (x86)/microchip/xc32/v1.42/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib\libpic32.a(defaultinterrupt.o)
+                0x00000778       0x20 c:/program files (x86)/microchip/xc32/v1.42/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib\libpic32.a(defaultinterrupt.o)
 
 .debug_pubnames
  *(.debug_pubnames)
 
-.debug_info     0x00000000    0x2eb39
+.debug_info     0x00000000    0x2ec93
  *(.debug_info .gnu.linkonce.wi.*)
  .debug_info    0x00000000     0x1289 build/default/production/_ext/664138601/drv_pmp_static.o
  .debug_info    0x00001289     0x212e build/default/production/_ext/639803181/sys_clk_static.o
@@ -1610,23 +1615,23 @@ END GROUP
  .debug_info    0x0000ad87     0x1cfb build/default/production/_ext/1688732426/system_interrupt.o
  .debug_info    0x0000ca82     0x128d build/default/production/_ext/1688732426/system_exceptions.o
  .debug_info    0x0000dd0f     0x1123 build/default/production/_ext/1688732426/system_tasks.o
- .debug_info    0x0000ee32     0x3bc5 build/default/production/_ext/1360937237/app.o
- .debug_info    0x000129f7      0x1ac build/default/production/_ext/1360937237/main.o
- .debug_info    0x00012ba3      0x576 build/default/production/_ext/169316842/centroid.o
- .debug_info    0x00013119     0x8928 build/default/production/_ext/1255245923/drv_i2c.o
- .debug_info    0x0001ba41     0x5dff build/default/production/_ext/116167346/drv_usart.o
- .debug_info    0x00021840     0x2a5f build/default/production/_ext/116167346/drv_usart_byte_model.o
- .debug_info    0x0002429f     0x1667 build/default/production/_ext/565619703/sys_devcon.o
- .debug_info    0x00025906     0x1084 build/default/production/_ext/565619703/sys_devcon_pic32mx.o
- .debug_info    0x0002698a     0x69e8 build/default/production/_ext/1515734680/sys_dma.o
- .debug_info    0x0002d372     0x1312 build/default/production/_ext/1704461839/sys_int_pic32.o
- .debug_info    0x0002e684      0x131 c:/program files (x86)/microchip/xc32/v1.42/bin/bin/../../lib/gcc/pic32mx/4.8.3\libgcc.a(floatunsisf.o)
- .debug_info    0x0002e7b5       0xf5 c:/program files (x86)/microchip/xc32/v1.42/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib\libpic32.a(default-bootstrap-exception-handler.o)
- .debug_info    0x0002e8aa       0xcf c:/program files (x86)/microchip/xc32/v1.42/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib\libpic32.a(default-on-reset.o)
- .debug_info    0x0002e979       0xd7 c:/program files (x86)/microchip/xc32/v1.42/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib\libpic32.a(default-on-bootstrap.o)
- .debug_info    0x0002ea50       0xe9 c:/program files (x86)/microchip/xc32/v1.42/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib\libpic32.a(defaultinterrupt.o)
+ .debug_info    0x0000ee32     0x3d09 build/default/production/_ext/1360937237/app.o
+ .debug_info    0x00012b3b      0x1ac build/default/production/_ext/1360937237/main.o
+ .debug_info    0x00012ce7      0x58c build/default/production/_ext/1078824437/centroid.o
+ .debug_info    0x00013273     0x8928 build/default/production/_ext/1255245923/drv_i2c.o
+ .debug_info    0x0001bb9b     0x5dff build/default/production/_ext/116167346/drv_usart.o
+ .debug_info    0x0002199a     0x2a5f build/default/production/_ext/116167346/drv_usart_byte_model.o
+ .debug_info    0x000243f9     0x1667 build/default/production/_ext/565619703/sys_devcon.o
+ .debug_info    0x00025a60     0x1084 build/default/production/_ext/565619703/sys_devcon_pic32mx.o
+ .debug_info    0x00026ae4     0x69e8 build/default/production/_ext/1515734680/sys_dma.o
+ .debug_info    0x0002d4cc     0x1312 build/default/production/_ext/1704461839/sys_int_pic32.o
+ .debug_info    0x0002e7de      0x131 c:/program files (x86)/microchip/xc32/v1.42/bin/bin/../../lib/gcc/pic32mx/4.8.3\libgcc.a(floatunsisf.o)
+ .debug_info    0x0002e90f       0xf5 c:/program files (x86)/microchip/xc32/v1.42/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib\libpic32.a(default-bootstrap-exception-handler.o)
+ .debug_info    0x0002ea04       0xcf c:/program files (x86)/microchip/xc32/v1.42/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib\libpic32.a(default-on-reset.o)
+ .debug_info    0x0002ead3       0xd7 c:/program files (x86)/microchip/xc32/v1.42/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib\libpic32.a(default-on-bootstrap.o)
+ .debug_info    0x0002ebaa       0xe9 c:/program files (x86)/microchip/xc32/v1.42/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib\libpic32.a(defaultinterrupt.o)
 
-.debug_abbrev   0x00000000     0x2b35
+.debug_abbrev   0x00000000     0x2b81
  *(.debug_abbrev)
  .debug_abbrev  0x00000000      0x1cc build/default/production/_ext/664138601/drv_pmp_static.o
  .debug_abbrev  0x000001cc      0x26b build/default/production/_ext/639803181/sys_clk_static.o
@@ -1635,23 +1640,23 @@ END GROUP
  .debug_abbrev  0x000009c0      0x1f6 build/default/production/_ext/1688732426/system_interrupt.o
  .debug_abbrev  0x00000bb6       0xef build/default/production/_ext/1688732426/system_exceptions.o
  .debug_abbrev  0x00000ca5      0x11a build/default/production/_ext/1688732426/system_tasks.o
- .debug_abbrev  0x00000dbf      0x38d build/default/production/_ext/1360937237/app.o
- .debug_abbrev  0x0000114c       0x93 build/default/production/_ext/1360937237/main.o
- .debug_abbrev  0x000011df      0x170 build/default/production/_ext/169316842/centroid.o
- .debug_abbrev  0x0000134f      0x453 build/default/production/_ext/1255245923/drv_i2c.o
- .debug_abbrev  0x000017a2      0x488 build/default/production/_ext/116167346/drv_usart.o
- .debug_abbrev  0x00001c2a      0x331 build/default/production/_ext/116167346/drv_usart_byte_model.o
- .debug_abbrev  0x00001f5b      0x2a0 build/default/production/_ext/565619703/sys_devcon.o
- .debug_abbrev  0x000021fb      0x204 build/default/production/_ext/565619703/sys_devcon_pic32mx.o
- .debug_abbrev  0x000023ff      0x40e build/default/production/_ext/1515734680/sys_dma.o
- .debug_abbrev  0x0000280d      0x226 build/default/production/_ext/1704461839/sys_int_pic32.o
- .debug_abbrev  0x00002a33       0x62 c:/program files (x86)/microchip/xc32/v1.42/bin/bin/../../lib/gcc/pic32mx/4.8.3\libgcc.a(floatunsisf.o)
- .debug_abbrev  0x00002a95       0x28 c:/program files (x86)/microchip/xc32/v1.42/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib\libpic32.a(default-bootstrap-exception-handler.o)
- .debug_abbrev  0x00002abd       0x28 c:/program files (x86)/microchip/xc32/v1.42/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib\libpic32.a(default-on-reset.o)
- .debug_abbrev  0x00002ae5       0x28 c:/program files (x86)/microchip/xc32/v1.42/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib\libpic32.a(default-on-bootstrap.o)
- .debug_abbrev  0x00002b0d       0x28 c:/program files (x86)/microchip/xc32/v1.42/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib\libpic32.a(defaultinterrupt.o)
+ .debug_abbrev  0x00000dbf      0x3d9 build/default/production/_ext/1360937237/app.o
+ .debug_abbrev  0x00001198       0x93 build/default/production/_ext/1360937237/main.o
+ .debug_abbrev  0x0000122b      0x170 build/default/production/_ext/1078824437/centroid.o
+ .debug_abbrev  0x0000139b      0x453 build/default/production/_ext/1255245923/drv_i2c.o
+ .debug_abbrev  0x000017ee      0x488 build/default/production/_ext/116167346/drv_usart.o
+ .debug_abbrev  0x00001c76      0x331 build/default/production/_ext/116167346/drv_usart_byte_model.o
+ .debug_abbrev  0x00001fa7      0x2a0 build/default/production/_ext/565619703/sys_devcon.o
+ .debug_abbrev  0x00002247      0x204 build/default/production/_ext/565619703/sys_devcon_pic32mx.o
+ .debug_abbrev  0x0000244b      0x40e build/default/production/_ext/1515734680/sys_dma.o
+ .debug_abbrev  0x00002859      0x226 build/default/production/_ext/1704461839/sys_int_pic32.o
+ .debug_abbrev  0x00002a7f       0x62 c:/program files (x86)/microchip/xc32/v1.42/bin/bin/../../lib/gcc/pic32mx/4.8.3\libgcc.a(floatunsisf.o)
+ .debug_abbrev  0x00002ae1       0x28 c:/program files (x86)/microchip/xc32/v1.42/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib\libpic32.a(default-bootstrap-exception-handler.o)
+ .debug_abbrev  0x00002b09       0x28 c:/program files (x86)/microchip/xc32/v1.42/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib\libpic32.a(default-on-reset.o)
+ .debug_abbrev  0x00002b31       0x28 c:/program files (x86)/microchip/xc32/v1.42/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib\libpic32.a(default-on-bootstrap.o)
+ .debug_abbrev  0x00002b59       0x28 c:/program files (x86)/microchip/xc32/v1.42/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib\libpic32.a(defaultinterrupt.o)
 
-.debug_line     0x00000000     0x6c80
+.debug_line     0x00000000     0x6cb1
  *(.debug_line)
  .debug_line    0x00000000      0x37b build/default/production/_ext/664138601/drv_pmp_static.o
  .debug_line    0x0000037b      0x4e7 build/default/production/_ext/639803181/sys_clk_static.o
@@ -1660,23 +1665,23 @@ END GROUP
  .debug_line    0x00001874      0x467 build/default/production/_ext/1688732426/system_interrupt.o
  .debug_line    0x00001cdb      0x18d build/default/production/_ext/1688732426/system_exceptions.o
  .debug_line    0x00001e68      0x22c build/default/production/_ext/1688732426/system_tasks.o
- .debug_line    0x00002094      0x5f9 build/default/production/_ext/1360937237/app.o
- .debug_line    0x0000268d       0xbf build/default/production/_ext/1360937237/main.o
- .debug_line    0x0000274c      0x173 build/default/production/_ext/169316842/centroid.o
- .debug_line    0x000028bf     0x14c0 build/default/production/_ext/1255245923/drv_i2c.o
- .debug_line    0x00003d7f      0xcfb build/default/production/_ext/116167346/drv_usart.o
- .debug_line    0x00004a7a      0x5d4 build/default/production/_ext/116167346/drv_usart_byte_model.o
- .debug_line    0x0000504e      0x5a4 build/default/production/_ext/565619703/sys_devcon.o
- .debug_line    0x000055f2      0x347 build/default/production/_ext/565619703/sys_devcon_pic32mx.o
- .debug_line    0x00005939      0xce1 build/default/production/_ext/1515734680/sys_dma.o
- .debug_line    0x0000661a      0x349 build/default/production/_ext/1704461839/sys_int_pic32.o
- .debug_line    0x00006963       0x9c c:/program files (x86)/microchip/xc32/v1.42/bin/bin/../../lib/gcc/pic32mx/4.8.3\libgcc.a(floatunsisf.o)
- .debug_line    0x000069ff       0xa9 c:/program files (x86)/microchip/xc32/v1.42/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib\libpic32.a(default-bootstrap-exception-handler.o)
- .debug_line    0x00006aa8       0x96 c:/program files (x86)/microchip/xc32/v1.42/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib\libpic32.a(default-on-reset.o)
- .debug_line    0x00006b3e       0x9a c:/program files (x86)/microchip/xc32/v1.42/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib\libpic32.a(default-on-bootstrap.o)
- .debug_line    0x00006bd8       0xa8 c:/program files (x86)/microchip/xc32/v1.42/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib\libpic32.a(defaultinterrupt.o)
+ .debug_line    0x00002094      0x622 build/default/production/_ext/1360937237/app.o
+ .debug_line    0x000026b6       0xbf build/default/production/_ext/1360937237/main.o
+ .debug_line    0x00002775      0x17b build/default/production/_ext/1078824437/centroid.o
+ .debug_line    0x000028f0     0x14c0 build/default/production/_ext/1255245923/drv_i2c.o
+ .debug_line    0x00003db0      0xcfb build/default/production/_ext/116167346/drv_usart.o
+ .debug_line    0x00004aab      0x5d4 build/default/production/_ext/116167346/drv_usart_byte_model.o
+ .debug_line    0x0000507f      0x5a4 build/default/production/_ext/565619703/sys_devcon.o
+ .debug_line    0x00005623      0x347 build/default/production/_ext/565619703/sys_devcon_pic32mx.o
+ .debug_line    0x0000596a      0xce1 build/default/production/_ext/1515734680/sys_dma.o
+ .debug_line    0x0000664b      0x349 build/default/production/_ext/1704461839/sys_int_pic32.o
+ .debug_line    0x00006994       0x9c c:/program files (x86)/microchip/xc32/v1.42/bin/bin/../../lib/gcc/pic32mx/4.8.3\libgcc.a(floatunsisf.o)
+ .debug_line    0x00006a30       0xa9 c:/program files (x86)/microchip/xc32/v1.42/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib\libpic32.a(default-bootstrap-exception-handler.o)
+ .debug_line    0x00006ad9       0x96 c:/program files (x86)/microchip/xc32/v1.42/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib\libpic32.a(default-on-reset.o)
+ .debug_line    0x00006b6f       0x9a c:/program files (x86)/microchip/xc32/v1.42/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib\libpic32.a(default-on-bootstrap.o)
+ .debug_line    0x00006c09       0xa8 c:/program files (x86)/microchip/xc32/v1.42/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib\libpic32.a(defaultinterrupt.o)
 
-.debug_frame    0x00000000     0x10e8
+.debug_frame    0x00000000     0x110c
  *(.debug_frame)
  .debug_frame   0x00000000       0x60 build/default/production/_ext/664138601/drv_pmp_static.o
  .debug_frame   0x00000060       0xa0 build/default/production/_ext/639803181/sys_clk_static.o
@@ -1685,23 +1690,23 @@ END GROUP
  .debug_frame   0x00000320      0x228 build/default/production/_ext/1688732426/system_interrupt.o
  .debug_frame   0x00000548       0x28 build/default/production/_ext/1688732426/system_exceptions.o
  .debug_frame   0x00000570       0x28 build/default/production/_ext/1688732426/system_tasks.o
- .debug_frame   0x00000598       0xf4 build/default/production/_ext/1360937237/app.o
- .debug_frame   0x0000068c       0x28 build/default/production/_ext/1360937237/main.o
- .debug_frame   0x000006b4       0x70 build/default/production/_ext/169316842/centroid.o
- .debug_frame   0x00000724      0x298 build/default/production/_ext/1255245923/drv_i2c.o
- .debug_frame   0x000009bc      0x254 build/default/production/_ext/116167346/drv_usart.o
- .debug_frame   0x00000c10       0xa0 build/default/production/_ext/116167346/drv_usart_byte_model.o
- .debug_frame   0x00000cb0       0xe8 build/default/production/_ext/565619703/sys_devcon.o
- .debug_frame   0x00000d98       0x28 build/default/production/_ext/565619703/sys_devcon_pic32mx.o
- .debug_frame   0x00000dc0      0x1e4 build/default/production/_ext/1515734680/sys_dma.o
- .debug_frame   0x00000fa4       0x90 build/default/production/_ext/1704461839/sys_int_pic32.o
- .debug_frame   0x00001034       0x28 c:/program files (x86)/microchip/xc32/v1.42/bin/bin/../../lib/gcc/pic32mx/4.8.3\libgcc.a(floatunsisf.o)
- .debug_frame   0x0000105c       0x2c c:/program files (x86)/microchip/xc32/v1.42/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib\libpic32.a(default-bootstrap-exception-handler.o)
- .debug_frame   0x00001088       0x20 c:/program files (x86)/microchip/xc32/v1.42/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib\libpic32.a(default-on-reset.o)
- .debug_frame   0x000010a8       0x20 c:/program files (x86)/microchip/xc32/v1.42/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib\libpic32.a(default-on-bootstrap.o)
- .debug_frame   0x000010c8       0x20 c:/program files (x86)/microchip/xc32/v1.42/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib\libpic32.a(defaultinterrupt.o)
+ .debug_frame   0x00000598      0x118 build/default/production/_ext/1360937237/app.o
+ .debug_frame   0x000006b0       0x28 build/default/production/_ext/1360937237/main.o
+ .debug_frame   0x000006d8       0x70 build/default/production/_ext/1078824437/centroid.o
+ .debug_frame   0x00000748      0x298 build/default/production/_ext/1255245923/drv_i2c.o
+ .debug_frame   0x000009e0      0x254 build/default/production/_ext/116167346/drv_usart.o
+ .debug_frame   0x00000c34       0xa0 build/default/production/_ext/116167346/drv_usart_byte_model.o
+ .debug_frame   0x00000cd4       0xe8 build/default/production/_ext/565619703/sys_devcon.o
+ .debug_frame   0x00000dbc       0x28 build/default/production/_ext/565619703/sys_devcon_pic32mx.o
+ .debug_frame   0x00000de4      0x1e4 build/default/production/_ext/1515734680/sys_dma.o
+ .debug_frame   0x00000fc8       0x90 build/default/production/_ext/1704461839/sys_int_pic32.o
+ .debug_frame   0x00001058       0x28 c:/program files (x86)/microchip/xc32/v1.42/bin/bin/../../lib/gcc/pic32mx/4.8.3\libgcc.a(floatunsisf.o)
+ .debug_frame   0x00001080       0x2c c:/program files (x86)/microchip/xc32/v1.42/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib\libpic32.a(default-bootstrap-exception-handler.o)
+ .debug_frame   0x000010ac       0x20 c:/program files (x86)/microchip/xc32/v1.42/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib\libpic32.a(default-on-reset.o)
+ .debug_frame   0x000010cc       0x20 c:/program files (x86)/microchip/xc32/v1.42/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib\libpic32.a(default-on-bootstrap.o)
+ .debug_frame   0x000010ec       0x20 c:/program files (x86)/microchip/xc32/v1.42/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib\libpic32.a(defaultinterrupt.o)
 
-.debug_str      0x00000000      0x674
+.debug_str      0x00000000      0x67d
  *(.debug_str)
  .debug_str     0x00000000       0x40 build/default/production/_ext/664138601/drv_pmp_static.o
  .debug_str     0x00000040       0x6f build/default/production/_ext/639803181/sys_clk_static.o
@@ -1710,37 +1715,37 @@ END GROUP
  .debug_str     0x00000186        0x0 build/default/production/_ext/1688732426/system_interrupt.o
  .debug_str     0x00000186        0x0 build/default/production/_ext/1688732426/system_exceptions.o
  .debug_str     0x00000186        0x0 build/default/production/_ext/1688732426/system_tasks.o
- .debug_str     0x00000186       0x32 build/default/production/_ext/1360937237/app.o
- .debug_str     0x000001b8        0x0 build/default/production/_ext/1360937237/main.o
- .debug_str     0x000001b8        0x0 build/default/production/_ext/169316842/centroid.o
- .debug_str     0x000001b8      0x145 build/default/production/_ext/1255245923/drv_i2c.o
- .debug_str     0x000002fd      0x1bb build/default/production/_ext/116167346/drv_usart.o
- .debug_str     0x000004b8       0x2e build/default/production/_ext/116167346/drv_usart_byte_model.o
- .debug_str     0x000004e6       0x16 build/default/production/_ext/565619703/sys_devcon.o
- .debug_str     0x000004fc        0x6 build/default/production/_ext/565619703/sys_devcon_pic32mx.o
- .debug_str     0x00000502      0x145 build/default/production/_ext/1515734680/sys_dma.o
- .debug_str     0x00000647       0x2d build/default/production/_ext/1704461839/sys_int_pic32.o
- .debug_str     0x00000674        0x0 c:/program files (x86)/microchip/xc32/v1.42/bin/bin/../../lib/gcc/pic32mx/4.8.3\libgcc.a(floatunsisf.o)
- .debug_str     0x00000674        0x0 c:/program files (x86)/microchip/xc32/v1.42/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib\libpic32.a(default-bootstrap-exception-handler.o)
- .debug_str     0x00000674        0x0 c:/program files (x86)/microchip/xc32/v1.42/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib\libpic32.a(default-on-reset.o)
- .debug_str     0x00000674        0x0 c:/program files (x86)/microchip/xc32/v1.42/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib\libpic32.a(default-on-bootstrap.o)
- .debug_str     0x00000674        0x0 c:/program files (x86)/microchip/xc32/v1.42/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib\libpic32.a(defaultinterrupt.o)
+ .debug_str     0x00000186       0x3b build/default/production/_ext/1360937237/app.o
+ .debug_str     0x000001c1        0x0 build/default/production/_ext/1360937237/main.o
+ .debug_str     0x000001c1        0x0 build/default/production/_ext/1078824437/centroid.o
+ .debug_str     0x000001c1      0x145 build/default/production/_ext/1255245923/drv_i2c.o
+ .debug_str     0x00000306      0x1bb build/default/production/_ext/116167346/drv_usart.o
+ .debug_str     0x000004c1       0x2e build/default/production/_ext/116167346/drv_usart_byte_model.o
+ .debug_str     0x000004ef       0x16 build/default/production/_ext/565619703/sys_devcon.o
+ .debug_str     0x00000505        0x6 build/default/production/_ext/565619703/sys_devcon_pic32mx.o
+ .debug_str     0x0000050b      0x145 build/default/production/_ext/1515734680/sys_dma.o
+ .debug_str     0x00000650       0x2d build/default/production/_ext/1704461839/sys_int_pic32.o
+ .debug_str     0x0000067d        0x0 c:/program files (x86)/microchip/xc32/v1.42/bin/bin/../../lib/gcc/pic32mx/4.8.3\libgcc.a(floatunsisf.o)
+ .debug_str     0x0000067d        0x0 c:/program files (x86)/microchip/xc32/v1.42/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib\libpic32.a(default-bootstrap-exception-handler.o)
+ .debug_str     0x0000067d        0x0 c:/program files (x86)/microchip/xc32/v1.42/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib\libpic32.a(default-on-reset.o)
+ .debug_str     0x0000067d        0x0 c:/program files (x86)/microchip/xc32/v1.42/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib\libpic32.a(default-on-bootstrap.o)
+ .debug_str     0x0000067d        0x0 c:/program files (x86)/microchip/xc32/v1.42/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib\libpic32.a(defaultinterrupt.o)
 
-.debug_loc      0x00000000     0x7dcb
+.debug_loc      0x00000000     0x7e21
  *(.debug_loc)
  .debug_loc     0x00000000       0x49 build/default/production/_ext/639803181/sys_clk_static.o
  .debug_loc     0x00000049      0x9a6 build/default/production/_ext/822048611/sys_ports_static.o
  .debug_loc     0x000009ef       0x21 build/default/production/_ext/1688732426/system_init.o
- .debug_loc     0x00000a10      0x33b build/default/production/_ext/1360937237/app.o
- .debug_loc     0x00000d4b      0x4da build/default/production/_ext/169316842/centroid.o
- .debug_loc     0x00001225     0x32b5 build/default/production/_ext/1255245923/drv_i2c.o
- .debug_loc     0x000044da     0x195b build/default/production/_ext/116167346/drv_usart.o
- .debug_loc     0x00005e35      0x3c4 build/default/production/_ext/116167346/drv_usart_byte_model.o
- .debug_loc     0x000061f9       0xf0 build/default/production/_ext/565619703/sys_devcon.o
- .debug_loc     0x000062e9       0xa3 build/default/production/_ext/565619703/sys_devcon_pic32mx.o
- .debug_loc     0x0000638c     0x1962 build/default/production/_ext/1515734680/sys_dma.o
- .debug_loc     0x00007cee       0x69 build/default/production/_ext/1704461839/sys_int_pic32.o
- .debug_loc     0x00007d57       0x74 c:/program files (x86)/microchip/xc32/v1.42/bin/bin/../../lib/gcc/pic32mx/4.8.3\libgcc.a(floatunsisf.o)
+ .debug_loc     0x00000a10      0x390 build/default/production/_ext/1360937237/app.o
+ .debug_loc     0x00000da0      0x4db build/default/production/_ext/1078824437/centroid.o
+ .debug_loc     0x0000127b     0x32b5 build/default/production/_ext/1255245923/drv_i2c.o
+ .debug_loc     0x00004530     0x195b build/default/production/_ext/116167346/drv_usart.o
+ .debug_loc     0x00005e8b      0x3c4 build/default/production/_ext/116167346/drv_usart_byte_model.o
+ .debug_loc     0x0000624f       0xf0 build/default/production/_ext/565619703/sys_devcon.o
+ .debug_loc     0x0000633f       0xa3 build/default/production/_ext/565619703/sys_devcon_pic32mx.o
+ .debug_loc     0x000063e2     0x1962 build/default/production/_ext/1515734680/sys_dma.o
+ .debug_loc     0x00007d44       0x69 build/default/production/_ext/1704461839/sys_int_pic32.o
+ .debug_loc     0x00007dad       0x74 c:/program files (x86)/microchip/xc32/v1.42/bin/bin/../../lib/gcc/pic32mx/4.8.3\libgcc.a(floatunsisf.o)
 
 .debug_macinfo
  *(.debug_macinfo)
@@ -1760,7 +1765,7 @@ END GROUP
 .debug_pubtypes
  *(.debug_pubtypes)
 
-.debug_ranges   0x00000000      0x878
+.debug_ranges   0x00000000      0x868
  *(.debug_ranges)
  .debug_ranges  0x00000000       0x30 build/default/production/_ext/664138601/drv_pmp_static.o
  .debug_ranges  0x00000030       0x40 build/default/production/_ext/639803181/sys_clk_static.o
@@ -1769,20 +1774,20 @@ END GROUP
  .debug_ranges  0x00000178       0x40 build/default/production/_ext/1688732426/system_interrupt.o
  .debug_ranges  0x000001b8       0x10 build/default/production/_ext/1688732426/system_exceptions.o
  .debug_ranges  0x000001c8       0x10 build/default/production/_ext/1688732426/system_tasks.o
- .debug_ranges  0x000001d8       0x60 build/default/production/_ext/1360937237/app.o
- .debug_ranges  0x00000238       0x10 build/default/production/_ext/1360937237/main.o
- .debug_ranges  0x00000248       0xa8 build/default/production/_ext/169316842/centroid.o
- .debug_ranges  0x000002f0      0x120 build/default/production/_ext/1255245923/drv_i2c.o
- .debug_ranges  0x00000410      0x160 build/default/production/_ext/116167346/drv_usart.o
- .debug_ranges  0x00000570       0x38 build/default/production/_ext/116167346/drv_usart_byte_model.o
- .debug_ranges  0x000005a8       0x68 build/default/production/_ext/565619703/sys_devcon.o
- .debug_ranges  0x00000610       0x10 build/default/production/_ext/565619703/sys_devcon_pic32mx.o
- .debug_ranges  0x00000620      0x1c8 build/default/production/_ext/1515734680/sys_dma.o
- .debug_ranges  0x000007e8       0x50 build/default/production/_ext/1704461839/sys_int_pic32.o
- .debug_ranges  0x00000838       0x10 c:/program files (x86)/microchip/xc32/v1.42/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib\libpic32.a(default-bootstrap-exception-handler.o)
- .debug_ranges  0x00000848       0x10 c:/program files (x86)/microchip/xc32/v1.42/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib\libpic32.a(default-on-reset.o)
- .debug_ranges  0x00000858       0x10 c:/program files (x86)/microchip/xc32/v1.42/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib\libpic32.a(default-on-bootstrap.o)
- .debug_ranges  0x00000868       0x10 c:/program files (x86)/microchip/xc32/v1.42/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib\libpic32.a(defaultinterrupt.o)
+ .debug_ranges  0x000001d8       0x68 build/default/production/_ext/1360937237/app.o
+ .debug_ranges  0x00000240       0x10 build/default/production/_ext/1360937237/main.o
+ .debug_ranges  0x00000250       0x90 build/default/production/_ext/1078824437/centroid.o
+ .debug_ranges  0x000002e0      0x120 build/default/production/_ext/1255245923/drv_i2c.o
+ .debug_ranges  0x00000400      0x160 build/default/production/_ext/116167346/drv_usart.o
+ .debug_ranges  0x00000560       0x38 build/default/production/_ext/116167346/drv_usart_byte_model.o
+ .debug_ranges  0x00000598       0x68 build/default/production/_ext/565619703/sys_devcon.o
+ .debug_ranges  0x00000600       0x10 build/default/production/_ext/565619703/sys_devcon_pic32mx.o
+ .debug_ranges  0x00000610      0x1c8 build/default/production/_ext/1515734680/sys_dma.o
+ .debug_ranges  0x000007d8       0x50 build/default/production/_ext/1704461839/sys_int_pic32.o
+ .debug_ranges  0x00000828       0x10 c:/program files (x86)/microchip/xc32/v1.42/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib\libpic32.a(default-bootstrap-exception-handler.o)
+ .debug_ranges  0x00000838       0x10 c:/program files (x86)/microchip/xc32/v1.42/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib\libpic32.a(default-on-reset.o)
+ .debug_ranges  0x00000848       0x10 c:/program files (x86)/microchip/xc32/v1.42/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib\libpic32.a(default-on-bootstrap.o)
+ .debug_ranges  0x00000858       0x10 c:/program files (x86)/microchip/xc32/v1.42/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib\libpic32.a(defaultinterrupt.o)
 
 .gnu.attributes
                 0x00000000       0x10
@@ -1806,7 +1811,7 @@ END GROUP
  .gnu.attributes
                 0x00000080       0x10 build/default/production/_ext/1360937237/main.o
  .gnu.attributes
-                0x00000090       0x10 build/default/production/_ext/169316842/centroid.o
+                0x00000090       0x10 build/default/production/_ext/1078824437/centroid.o
  .gnu.attributes
                 0x000000a0       0x10 build/default/production/_ext/1255245923/drv_i2c.o
  .gnu.attributes
@@ -1876,426 +1881,492 @@ LOAD data_init
                 0x9d0009c8      0x34c build/default/production/_ext/1255245923/drv_i2c.o
                 0x9d0009c8                DRV_I2C_Initialize
 
+.text.fpsubadd  0x9d000d14      0x278
+ .text.fpsubadd
+                0x9d000d14      0x278 c:/program files (x86)/microchip/xc32/v1.42/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib\libm.a(fp32subadd.o)
+                0x9d000d14                fpsub
+                0x9d000d14                __subsf3
+                0x9d000d1c                __addsf3
+                0x9d000d1c                fpadd
+
+.text.getBlobId
+                0x9d000f8c      0x268
+ .text.getBlobId
+                0x9d000f8c      0x268 build/default/production/_ext/1078824437/centroid.o
+                0x9d000f8c                getBlobId
+
 .text.SYS_Initialize
-                0x9d000d14      0x264
+                0x9d0011f4      0x264
  .text.SYS_Initialize
-                0x9d000d14      0x264 build/default/production/_ext/1688732426/system_init.o
-                0x9d000d14                SYS_Initialize
+                0x9d0011f4      0x264 build/default/production/_ext/1688732426/system_init.o
+                0x9d0011f4                SYS_Initialize
+
+.text.fp32div   0x9d001458      0x230
+ .text.fp32div  0x9d001458      0x230 c:/program files (x86)/microchip/xc32/v1.42/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib\libm.a(fp32div.o)
+                0x9d001458                fpdiv
+                0x9d001458                __divsf3
+
+.text.getCentroids
+                0x9d001688      0x21c
+ .text.getCentroids
+                0x9d001688      0x21c build/default/production/_ext/1078824437/centroid.o
+                0x9d001688                getCentroids
 
 .text.APP_Tasks
-                0x9d000f78      0x1e8
+                0x9d0018a4      0x1e8
  .text.APP_Tasks
-                0x9d000f78      0x1e8 build/default/production/_ext/1360937237/app.o
-                0x9d000f78                APP_Tasks
+                0x9d0018a4      0x1e8 build/default/production/_ext/1360937237/app.o
+                0x9d0018a4                APP_Tasks
 
 .text.DRV_I2C_Transmit
-                0x9d001160      0x1e4
+                0x9d001a8c      0x1e4
  .text.DRV_I2C_Transmit
-                0x9d001160      0x1e4 build/default/production/_ext/1255245923/drv_i2c.o
-                0x9d001160                DRV_I2C_Transmit
+                0x9d001a8c      0x1e4 build/default/production/_ext/1255245923/drv_i2c.o
+                0x9d001a8c                DRV_I2C_Transmit
 
 .text._DRV_I2C_QueueSlotGet
-                0x9d001344      0x1d8
+                0x9d001c70      0x1d8
  .text._DRV_I2C_QueueSlotGet
-                0x9d001344      0x1d8 build/default/production/_ext/1255245923/drv_i2c.o
-                0x9d001344                _DRV_I2C_QueueSlotGet
+                0x9d001c70      0x1d8 build/default/production/_ext/1255245923/drv_i2c.o
+                0x9d001c70                _DRV_I2C_QueueSlotGet
 
 .text._DRV_USART_HardwareSetup
-                0x9d00151c      0x1cc
+                0x9d001e48      0x1cc
  .text._DRV_USART_HardwareSetup
-                0x9d00151c      0x1cc build/default/production/_ext/116167346/drv_usart.o
-                0x9d00151c                _DRV_USART_HardwareSetup
+                0x9d001e48      0x1cc build/default/production/_ext/116167346/drv_usart.o
+                0x9d001e48                _DRV_USART_HardwareSetup
 
 .text.DRV_USART_Initialize
-                0x9d0016e8      0x1a0
+                0x9d002014      0x1a0
  .text.DRV_USART_Initialize
-                0x9d0016e8      0x1a0 build/default/production/_ext/116167346/drv_usart.o
-                0x9d0016e8                DRV_USART_Initialize
+                0x9d002014      0x1a0 build/default/production/_ext/116167346/drv_usart.o
+                0x9d002014                DRV_USART_Initialize
 
 .text.SYS_DMA_ChannelSetup
-                0x9d001888      0x16c
+                0x9d0021b4      0x16c
  .text.SYS_DMA_ChannelSetup
-                0x9d001888      0x16c build/default/production/_ext/1515734680/sys_dma.o
-                0x9d001888                SYS_DMA_ChannelSetup
+                0x9d0021b4      0x16c build/default/production/_ext/1515734680/sys_dma.o
+                0x9d0021b4                SYS_DMA_ChannelSetup
 
 .text.SYS_DMA_ChannelTransferAdd
-                0x9d0019f4      0x15c
+                0x9d002320      0x15c
  .text.SYS_DMA_ChannelTransferAdd
-                0x9d0019f4      0x15c build/default/production/_ext/1515734680/sys_dma.o
-                0x9d0019f4                SYS_DMA_ChannelTransferAdd
+                0x9d002320      0x15c build/default/production/_ext/1515734680/sys_dma.o
+                0x9d002320                SYS_DMA_ChannelTransferAdd
 
 .text._IntHandlerDrvUsartInstance0
-                0x9d001b50      0x150
+                0x9d00247c      0x150
  .text._IntHandlerDrvUsartInstance0
-                0x9d001b50      0x150 build/default/production/_ext/1688732426/system_interrupt.o
-                0x9d001b50                _IntHandlerDrvUsartInstance0
+                0x9d00247c      0x150 build/default/production/_ext/1688732426/system_interrupt.o
+                0x9d00247c                _IntHandlerDrvUsartInstance0
 
 .text._IntHandlerExternalInterruptInstance0
-                0x9d001ca0      0x140
+                0x9d0025cc      0x140
  .text._IntHandlerExternalInterruptInstance0
-                0x9d001ca0      0x140 build/default/production/_ext/1688732426/system_interrupt.o
-                0x9d001ca0                _IntHandlerExternalInterruptInstance0
+                0x9d0025cc      0x140 build/default/production/_ext/1688732426/system_interrupt.o
+                0x9d0025cc                _IntHandlerExternalInterruptInstance0
 
 .text._IntHandlerExternalInterruptInstance1
-                0x9d001de0      0x140
+                0x9d00270c      0x140
  .text._IntHandlerExternalInterruptInstance1
-                0x9d001de0      0x140 build/default/production/_ext/1688732426/system_interrupt.o
-                0x9d001de0                _IntHandlerExternalInterruptInstance1
+                0x9d00270c      0x140 build/default/production/_ext/1688732426/system_interrupt.o
+                0x9d00270c                _IntHandlerExternalInterruptInstance1
 
 .text._IntHandlerSysDmaCh0
-                0x9d001f20      0x138
+                0x9d00284c      0x138
  .text._IntHandlerSysDmaCh0
-                0x9d001f20      0x138 build/default/production/_ext/1688732426/system_interrupt.o
-                0x9d001f20                _IntHandlerSysDmaCh0
+                0x9d00284c      0x138 build/default/production/_ext/1688732426/system_interrupt.o
+                0x9d00284c                _IntHandlerSysDmaCh0
 
 .text._IntHandlerDrvI2CInstance0
-                0x9d002058      0x134
+                0x9d002984      0x134
  .text._IntHandlerDrvI2CInstance0
-                0x9d002058      0x134 build/default/production/_ext/1688732426/system_interrupt.o
-                0x9d002058                _IntHandlerDrvI2CInstance0
+                0x9d002984      0x134 build/default/production/_ext/1688732426/system_interrupt.o
+                0x9d002984                _IntHandlerDrvI2CInstance0
 
 .text._IntHandlerCoreSoftwareInterruptInstance0
-                0x9d00218c      0x12c
+                0x9d002ab8      0x12c
  .text._IntHandlerCoreSoftwareInterruptInstance0
-                0x9d00218c      0x12c build/default/production/_ext/1688732426/system_interrupt.o
-                0x9d00218c                _IntHandlerCoreSoftwareInterruptInstance0
+                0x9d002ab8      0x12c build/default/production/_ext/1688732426/system_interrupt.o
+                0x9d002ab8                _IntHandlerCoreSoftwareInterruptInstance0
 
 .text.DRV_USART_Open
-                0x9d0022b8      0x12c
+                0x9d002be4      0x12c
  .text.DRV_USART_Open
-                0x9d0022b8      0x12c build/default/production/_ext/116167346/drv_usart.o
-                0x9d0022b8                DRV_USART_Open
+                0x9d002be4      0x12c build/default/production/_ext/116167346/drv_usart.o
+                0x9d002be4                DRV_USART_Open
 
-.rodata         0x9d0023e4      0x128
- .rodata        0x9d0023e4      0x128 build/default/production/_ext/1688732426/system_exceptions.o
+.rodata         0x9d002d10      0x128
+ .rodata        0x9d002d10      0x128 build/default/production/_ext/1688732426/system_exceptions.o
 
 .text.SYS_PORTS_Initialize
-                0x9d00250c      0x10c
+                0x9d002e38      0x10c
  .text.SYS_PORTS_Initialize
-                0x9d00250c      0x10c build/default/production/_ext/822048611/sys_ports_static.o
-                0x9d00250c                SYS_PORTS_Initialize
+                0x9d002e38      0x10c build/default/production/_ext/822048611/sys_ports_static.o
+                0x9d002e38                SYS_PORTS_Initialize
 
 .text.APP_HSYNC_Interrupt_Handler
-                0x9d002618       0xf8
+                0x9d002f44       0xfc
  .text.APP_HSYNC_Interrupt_Handler
-                0x9d002618       0xf8 build/default/production/_ext/1360937237/app.o
-                0x9d002618                APP_HSYNC_Interrupt_Handler
+                0x9d002f44       0xfc build/default/production/_ext/1360937237/app.o
+                0x9d002f44                APP_HSYNC_Interrupt_Handler
 
 .text.SYS_DMA_TasksISR
-                0x9d002710       0xf8
+                0x9d003040       0xf8
  .text.SYS_DMA_TasksISR
-                0x9d002710       0xf8 build/default/production/_ext/1515734680/sys_dma.o
-                0x9d002710                SYS_DMA_TasksISR
+                0x9d003040       0xf8 build/default/production/_ext/1515734680/sys_dma.o
+                0x9d003040                SYS_DMA_TasksISR
 
 .text.general_exception
-                0x9d002808       0xdc
+                0x9d003138       0xdc
  .text.general_exception
-                0x9d002808       0xdc c:/program files (x86)/microchip/xc32/v1.42/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib\libpic32.a(general-exception.o)
-                0x9d002808                _general_exception_context
-
-.text.DRV_I2C_Open
-                0x9d0028e4       0xcc
- .text.DRV_I2C_Open
-                0x9d0028e4       0xcc build/default/production/_ext/1255245923/drv_i2c.o
-                0x9d0028e4                DRV_I2C_Open
-
-.text._DRV_I2C_QueuePush
-                0x9d0029b0       0xbc
- .text._DRV_I2C_QueuePush
-                0x9d0029b0       0xbc build/default/production/_ext/1255245923/drv_i2c.o
-                0x9d0029b0                _DRV_I2C_QueuePush
-
-.text.DRV_USART_TasksError
-                0x9d002a6c       0xbc
- .text.DRV_USART_TasksError
-                0x9d002a6c       0xbc build/default/production/_ext/116167346/drv_usart.o
-                0x9d002a6c                DRV_USART_TasksError
-
-.text.Camera_Initialize
-                0x9d002b28       0xb4
- .text.Camera_Initialize
-                0x9d002b28       0xb4 build/default/production/_ext/1360937237/app.o
-                0x9d002b28                Camera_Initialize
-
-.text.DRV_USART_TasksTransmit
-                0x9d002bdc       0xa4
- .text.DRV_USART_TasksTransmit
-                0x9d002bdc       0xa4 build/default/production/_ext/116167346/drv_usart.o
-                0x9d002bdc                DRV_USART_TasksTransmit
-
-.text.DRV_USART_TasksReceive
-                0x9d002c80       0xa4
- .text.DRV_USART_TasksReceive
-                0x9d002c80       0xa4 build/default/production/_ext/116167346/drv_usart.o
-                0x9d002c80                DRV_USART_TasksReceive
-
-.rodata         0x9d002d24       0x9c
- .rodata        0x9d002d24       0x9c build/default/production/_ext/1688732426/system_init.o
-                0x9d002d24                sysDmaInit
-                0x9d002d28                sysDevconInit
-                0x9d002d2c                drvUsart0InitData
-                0x9d002d74                drvI2C0InitData
-
-.text._DRV_I2C_QueuePop
-                0x9d002dc0       0x9c
- .text._DRV_I2C_QueuePop
-                0x9d002dc0       0x9c build/default/production/_ext/1255245923/drv_i2c.o
-                0x9d002dc0                _DRV_I2C_QueuePop
-
-.text.SYS_CLK_Initialize
-                0x9d002e5c       0x90
- .text.SYS_CLK_Initialize
-                0x9d002e5c       0x90 build/default/production/_ext/639803181/sys_clk_static.o
-                0x9d002e5c                SYS_CLK_Initialize
-
-.text._IntHandlerExternalInterruptInstance2
-                0x9d002eec       0x88
- .text._IntHandlerExternalInterruptInstance2
-                0x9d002eec       0x88 build/default/production/_ext/1688732426/system_interrupt.o
-                0x9d002eec                _IntHandlerExternalInterruptInstance2
-
-.text._DRV_USART_ByteTransmitTasks
-                0x9d002f74       0x88
- .text._DRV_USART_ByteTransmitTasks
-                0x9d002f74       0x88 build/default/production/_ext/116167346/drv_usart.o
-                0x9d002f74                _DRV_USART_ByteTransmitTasks
-
-.dinit          0x9d002ffc       0x80
- .dinit         0x9d002ffc       0x80 data_init
-
-.text._DRV_USART_ByteReceiveTasks
-                0x9d00307c       0x70
- .text._DRV_USART_ByteReceiveTasks
-                0x9d00307c       0x70 build/default/production/_ext/116167346/drv_usart.o
-                0x9d00307c                _DRV_USART_ByteReceiveTasks
-
-.text._DRV_USART_ByteErrorTasks
-                0x9d0030ec       0x70
- .text._DRV_USART_ByteErrorTasks
-                0x9d0030ec       0x70 build/default/production/_ext/116167346/drv_usart.o
-                0x9d0030ec                _DRV_USART_ByteErrorTasks
-
-.text.DRV_USART_WriteByte
-                0x9d00315c       0x70
- .text.DRV_USART_WriteByte
-                0x9d00315c       0x70 build/default/production/_ext/116167346/drv_usart_byte_model.o
-                0x9d00315c                DRV_USART_WriteByte
-
-.text.SYS_DMA_Initialize
-                0x9d0031cc       0x6c
- .text.SYS_DMA_Initialize
-                0x9d0031cc       0x6c build/default/production/_ext/1515734680/sys_dma.o
-                0x9d0031cc                SYS_DMA_Initialize
-
-.text.SYS_DEVCON_PerformanceConfig
-                0x9d003238       0x5c
- .text.SYS_DEVCON_PerformanceConfig
-                0x9d003238       0x5c build/default/production/_ext/565619703/sys_devcon_pic32mx.o
-                0x9d003238                SYS_DEVCON_PerformanceConfig
-
-.text.SYS_DMA_ChannelAllocate
-                0x9d003294       0x5c
- .text.SYS_DMA_ChannelAllocate
-                0x9d003294       0x5c build/default/production/_ext/1515734680/sys_dma.o
-                0x9d003294                SYS_DMA_ChannelAllocate
-
-.text.SYS_DEVCON_SystemUnlock
-                0x9d0032f0       0x58
- .text.SYS_DEVCON_SystemUnlock
-                0x9d0032f0       0x58 build/default/production/_ext/565619703/sys_devcon.o
-                0x9d0032f0                SYS_DEVCON_SystemUnlock
-
-.text.main_entry
-                0x9d003348       0x54
- .text.main_entry
-                0x9d003348       0x54 c:/program files (x86)/microchip/xc32/v1.42/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib/./proc/32MX170F256B/crt0_mips32r2.o
-                0x9d00337c                __crt0_exit
+                0x9d003138       0xdc c:/program files (x86)/microchip/xc32/v1.42/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib\libpic32.a(general-exception.o)
+                0x9d003138                _general_exception_context
 
 .text.APP_VSYNC_Interrupt_Handler
-                0x9d00339c       0x54
+                0x9d003214       0xd8
  .text.APP_VSYNC_Interrupt_Handler
-                0x9d00339c       0x54 build/default/production/_ext/1360937237/app.o
-                0x9d00339c                APP_VSYNC_Interrupt_Handler
+                0x9d003214       0xd8 build/default/production/_ext/1360937237/app.o
+                0x9d003214                APP_VSYNC_Interrupt_Handler
+
+.text.DRV_I2C_Open
+                0x9d0032ec       0xcc
+ .text.DRV_I2C_Open
+                0x9d0032ec       0xcc build/default/production/_ext/1255245923/drv_i2c.o
+                0x9d0032ec                DRV_I2C_Open
+
+.text._DRV_I2C_QueuePush
+                0x9d0033b8       0xbc
+ .text._DRV_I2C_QueuePush
+                0x9d0033b8       0xbc build/default/production/_ext/1255245923/drv_i2c.o
+                0x9d0033b8                _DRV_I2C_QueuePush
+
+.text.DRV_USART_TasksError
+                0x9d003474       0xbc
+ .text.DRV_USART_TasksError
+                0x9d003474       0xbc build/default/production/_ext/116167346/drv_usart.o
+                0x9d003474                DRV_USART_TasksError
+
+.text.Camera_Initialize
+                0x9d003530       0xb4
+ .text.Camera_Initialize
+                0x9d003530       0xb4 build/default/production/_ext/1360937237/app.o
+                0x9d003530                Camera_Initialize
+
+.text.DRV_USART_TasksTransmit
+                0x9d0035e4       0xa4
+ .text.DRV_USART_TasksTransmit
+                0x9d0035e4       0xa4 build/default/production/_ext/116167346/drv_usart.o
+                0x9d0035e4                DRV_USART_TasksTransmit
+
+.text.DRV_USART_TasksReceive
+                0x9d003688       0xa4
+ .text.DRV_USART_TasksReceive
+                0x9d003688       0xa4 build/default/production/_ext/116167346/drv_usart.o
+                0x9d003688                DRV_USART_TasksReceive
+
+.rodata         0x9d00372c       0x9c
+ .rodata        0x9d00372c       0x9c build/default/production/_ext/1688732426/system_init.o
+                0x9d00372c                sysDmaInit
+                0x9d003730                sysDevconInit
+                0x9d003734                drvUsart0InitData
+                0x9d00377c                drvI2C0InitData
+
+.text._DRV_I2C_QueuePop
+                0x9d0037c8       0x9c
+ .text._DRV_I2C_QueuePop
+                0x9d0037c8       0x9c build/default/production/_ext/1255245923/drv_i2c.o
+                0x9d0037c8                _DRV_I2C_QueuePop
+
+.text.fpcmp     0x9d003864       0x9c
+ .text.fpcmp    0x9d003864       0x9c c:/program files (x86)/microchip/xc32/v1.42/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib\libm.a(fpcmp.o)
+                0x9d003864                __nesf2
+                0x9d003864                __gtsf2
+                0x9d003864                __eqsf2
+                0x9d003864                __ltsf2
+                0x9d003864                fpcmp
+                0x9d003864                __gesf2
+                0x9d003864                __lesf2
+
+.text.SYS_CLK_Initialize
+                0x9d003900       0x90
+ .text.SYS_CLK_Initialize
+                0x9d003900       0x90 build/default/production/_ext/639803181/sys_clk_static.o
+                0x9d003900                SYS_CLK_Initialize
+
+.text._IntHandlerExternalInterruptInstance2
+                0x9d003990       0x88
+ .text._IntHandlerExternalInterruptInstance2
+                0x9d003990       0x88 build/default/production/_ext/1688732426/system_interrupt.o
+                0x9d003990                _IntHandlerExternalInterruptInstance2
+
+.text._DRV_USART_ByteTransmitTasks
+                0x9d003a18       0x88
+ .text._DRV_USART_ByteTransmitTasks
+                0x9d003a18       0x88 build/default/production/_ext/116167346/drv_usart.o
+                0x9d003a18                _DRV_USART_ByteTransmitTasks
+
+.text.fptoli    0x9d003aa0       0x80
+ .text.fptoli   0x9d003aa0       0x80 c:/program files (x86)/microchip/xc32/v1.42/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib\libm.a(fptoli.o)
+                0x9d003aa0                fptoli
+                0x9d003aa0                fptosi
+                0x9d003aa0                __fixsfsi
+
+.dinit          0x9d003b20       0x80
+ .dinit         0x9d003b20       0x80 data_init
+
+.text.fptoul    0x9d003ba0       0x7c
+ .text.fptoul   0x9d003ba0       0x7c c:/program files (x86)/microchip/xc32/v1.42/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib\libm.a(fptoul.o)
+                0x9d003ba0                __fixunssfsi
+                0x9d003ba0                fptoul
+                0x9d003ba0                fptoui
+
+.text._DRV_USART_ByteReceiveTasks
+                0x9d003c1c       0x70
+ .text._DRV_USART_ByteReceiveTasks
+                0x9d003c1c       0x70 build/default/production/_ext/116167346/drv_usart.o
+                0x9d003c1c                _DRV_USART_ByteReceiveTasks
+
+.text._DRV_USART_ByteErrorTasks
+                0x9d003c8c       0x70
+ .text._DRV_USART_ByteErrorTasks
+                0x9d003c8c       0x70 build/default/production/_ext/116167346/drv_usart.o
+                0x9d003c8c                _DRV_USART_ByteErrorTasks
+
+.text.DRV_USART_WriteByte
+                0x9d003cfc       0x70
+ .text.DRV_USART_WriteByte
+                0x9d003cfc       0x70 build/default/production/_ext/116167346/drv_usart_byte_model.o
+                0x9d003cfc                DRV_USART_WriteByte
+
+.text.SYS_DMA_Initialize
+                0x9d003d6c       0x6c
+ .text.SYS_DMA_Initialize
+                0x9d003d6c       0x6c build/default/production/_ext/1515734680/sys_dma.o
+                0x9d003d6c                SYS_DMA_Initialize
+
+.text.sitofp    0x9d003dd8       0x60
+ .text.sitofp   0x9d003dd8       0x60 c:/program files (x86)/microchip/xc32/v1.42/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib\libm.a(sitofp.o)
+                0x9d003dd8                __floatsisf
+                0x9d003dd8                litofp
+                0x9d003dd8                sitofp
+
+.text.SYS_DEVCON_PerformanceConfig
+                0x9d003e38       0x5c
+ .text.SYS_DEVCON_PerformanceConfig
+                0x9d003e38       0x5c build/default/production/_ext/565619703/sys_devcon_pic32mx.o
+                0x9d003e38                SYS_DEVCON_PerformanceConfig
+
+.text.SYS_DMA_ChannelAllocate
+                0x9d003e94       0x5c
+ .text.SYS_DMA_ChannelAllocate
+                0x9d003e94       0x5c build/default/production/_ext/1515734680/sys_dma.o
+                0x9d003e94                SYS_DMA_ChannelAllocate
+
+.text.SYS_DEVCON_SystemUnlock
+                0x9d003ef0       0x58
+ .text.SYS_DEVCON_SystemUnlock
+                0x9d003ef0       0x58 build/default/production/_ext/565619703/sys_devcon.o
+                0x9d003ef0                SYS_DEVCON_SystemUnlock
+
+.text.main_entry
+                0x9d003f48       0x54
+ .text.main_entry
+                0x9d003f48       0x54 c:/program files (x86)/microchip/xc32/v1.42/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib/./proc/32MX170F256B/crt0_mips32r2.o
+                0x9d003f7c                __crt0_exit
 
 .text.SYS_INT_SourceDisable
-                0x9d0033f0       0x54
+                0x9d003f9c       0x54
  .text.SYS_INT_SourceDisable
-                0x9d0033f0       0x54 build/default/production/_ext/1704461839/sys_int_pic32.o
-                0x9d0033f0                SYS_INT_SourceDisable
+                0x9d003f9c       0x54 build/default/production/_ext/1704461839/sys_int_pic32.o
+                0x9d003f9c                SYS_INT_SourceDisable
 
 .text.DRV_USART_ReadByte
-                0x9d003444       0x50
+                0x9d003ff0       0x50
  .text.DRV_USART_ReadByte
-                0x9d003444       0x50 build/default/production/_ext/116167346/drv_usart_byte_model.o
-                0x9d003444                DRV_USART_ReadByte
+                0x9d003ff0       0x50 build/default/production/_ext/116167346/drv_usart_byte_model.o
+                0x9d003ff0                DRV_USART_ReadByte
+
+.text           0x9d004040       0x4c
+ .text          0x9d004040       0x4c c:/program files (x86)/microchip/xc32/v1.42/bin/bin/../../lib/gcc/pic32mx/4.8.3\libgcc.a(floatunsisf.o)
+                0x9d004040                __floatunsisf
 
 .text.SYS_DEVCON_SystemLock
-                0x9d003494       0x48
+                0x9d00408c       0x48
  .text.SYS_DEVCON_SystemLock
-                0x9d003494       0x48 build/default/production/_ext/565619703/sys_devcon.o
-                0x9d003494                SYS_DEVCON_SystemLock
+                0x9d00408c       0x48 build/default/production/_ext/565619703/sys_devcon.o
+                0x9d00408c                SYS_DEVCON_SystemLock
 
 .text._bootstrap_exception_handler
-                0x9d0034dc       0x48
+                0x9d0040d4       0x48
  .text._bootstrap_exception_handler
-                0x9d0034dc       0x48 c:/program files (x86)/microchip/xc32/v1.42/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib\libpic32.a(default-bootstrap-exception-handler.o)
-                0x9d0034dc                _bootstrap_exception_handler
+                0x9d0040d4       0x48 c:/program files (x86)/microchip/xc32/v1.42/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib\libpic32.a(default-bootstrap-exception-handler.o)
+                0x9d0040d4                _bootstrap_exception_handler
 
 .vector_default
-                0x9d003524       0x48
+                0x9d00411c       0x48
  .vector_default
-                0x9d003524       0x48 c:/program files (x86)/microchip/xc32/v1.42/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib\libpic32.a(defaultinterrupt.o)
-                0x9d003524                _DefaultInterrupt
+                0x9d00411c       0x48 c:/program files (x86)/microchip/xc32/v1.42/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib\libpic32.a(defaultinterrupt.o)
+                0x9d00411c                _DefaultInterrupt
 
 .text.DRV_PMP0_ModeConfig
-                0x9d00356c       0x44
+                0x9d004164       0x44
  .text.DRV_PMP0_ModeConfig
-                0x9d00356c       0x44 build/default/production/_ext/664138601/drv_pmp_static.o
-                0x9d00356c                DRV_PMP0_ModeConfig
-
-.text           0x9d0035b0       0x44
- .text          0x9d0035b0       0x44 c:/program files (x86)/microchip/xc32/v1.42/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib\pic32_software_reset.o
-                0x9d0035b0                __pic32_software_reset
-
-.text._general_exception_handler
-                0x9d0035f4       0x40
- .text._general_exception_handler
-                0x9d0035f4       0x40 build/default/production/_ext/1688732426/system_exceptions.o
-                0x9d0035f4                _general_exception_handler
-
-.text._DRV_I2C_IsQueueEmpty
-                0x9d003634       0x3c
- .text._DRV_I2C_IsQueueEmpty
-                0x9d003634       0x3c build/default/production/_ext/1255245923/drv_i2c.o
-                0x9d003634                _DRV_I2C_IsQueueEmpty
-
-.text.DRV_USART_ReceiverBufferIsEmpty
-                0x9d003670       0x38
- .text.DRV_USART_ReceiverBufferIsEmpty
-                0x9d003670       0x38 build/default/production/_ext/116167346/drv_usart_byte_model.o
-                0x9d003670                DRV_USART_ReceiverBufferIsEmpty
-
-.text._DRV_I2C_Advance_Queue
-                0x9d0036a8       0x30
- .text._DRV_I2C_Advance_Queue
-                0x9d0036a8       0x30 build/default/production/_ext/1255245923/drv_i2c.o
-                0x9d0036a8                _DRV_I2C_Advance_Queue
-
-.text.SYS_Tasks
-                0x9d0036d8       0x28
- .text.SYS_Tasks
-                0x9d0036d8       0x28 build/default/production/_ext/1688732426/system_tasks.o
-                0x9d0036d8                SYS_Tasks
-
-.text._DRV_USART_DriverHandleValidate
-                0x9d003700       0x28
- .text._DRV_USART_DriverHandleValidate
-                0x9d003700       0x28 build/default/production/_ext/116167346/drv_usart.o
-                0x9d003700                _DRV_USART_DriverHandleValidate
-
-.text.SYS_INT_ExternalInterruptTriggerSet
-                0x9d003728       0x28
- .text.SYS_INT_ExternalInterruptTriggerSet
-                0x9d003728       0x28 build/default/production/_ext/1704461839/sys_int_pic32.o
-                0x9d003728                SYS_INT_ExternalInterruptTriggerSet
-
-.text.delay     0x9d003750       0x24
- .text.delay    0x9d003750       0x24 build/default/production/_ext/1360937237/app.o
-                0x9d003750                delay
+                0x9d004164       0x44 build/default/production/_ext/664138601/drv_pmp_static.o
+                0x9d004164                DRV_PMP0_ModeConfig
 
 .text.printChar
-                0x9d003774       0x24
+                0x9d0041a8       0x44
  .text.printChar
-                0x9d003774       0x24 build/default/production/_ext/1360937237/app.o
-                0x9d003774                printChar
+                0x9d0041a8       0x44 build/default/production/_ext/1360937237/app.o
+                0x9d0041a8                printChar
 
-.text.main      0x9d003798       0x20
- .text.main     0x9d003798       0x20 build/default/production/_ext/1360937237/main.o
-                0x9d003798                main
+.text           0x9d0041ec       0x44
+ .text          0x9d0041ec       0x44 c:/program files (x86)/microchip/xc32/v1.42/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib\pic32_software_reset.o
+                0x9d0041ec                __pic32_software_reset
+
+.text._general_exception_handler
+                0x9d004230       0x40
+ .text._general_exception_handler
+                0x9d004230       0x40 build/default/production/_ext/1688732426/system_exceptions.o
+                0x9d004230                _general_exception_handler
+
+.text._DRV_I2C_IsQueueEmpty
+                0x9d004270       0x3c
+ .text._DRV_I2C_IsQueueEmpty
+                0x9d004270       0x3c build/default/production/_ext/1255245923/drv_i2c.o
+                0x9d004270                _DRV_I2C_IsQueueEmpty
+
+.text.DRV_USART_ReceiverBufferIsEmpty
+                0x9d0042ac       0x38
+ .text.DRV_USART_ReceiverBufferIsEmpty
+                0x9d0042ac       0x38 build/default/production/_ext/116167346/drv_usart_byte_model.o
+                0x9d0042ac                DRV_USART_ReceiverBufferIsEmpty
+
+.text.DRV_USART_TransmitBufferIsFull
+                0x9d0042e4       0x34
+ .text.DRV_USART_TransmitBufferIsFull
+                0x9d0042e4       0x34 build/default/production/_ext/116167346/drv_usart_byte_model.o
+                0x9d0042e4                DRV_USART_TransmitBufferIsFull
+
+.text._DRV_I2C_Advance_Queue
+                0x9d004318       0x30
+ .text._DRV_I2C_Advance_Queue
+                0x9d004318       0x30 build/default/production/_ext/1255245923/drv_i2c.o
+                0x9d004318                _DRV_I2C_Advance_Queue
+
+.text.SYS_Tasks
+                0x9d004348       0x28
+ .text.SYS_Tasks
+                0x9d004348       0x28 build/default/production/_ext/1688732426/system_tasks.o
+                0x9d004348                SYS_Tasks
+
+.text._DRV_USART_DriverHandleValidate
+                0x9d004370       0x28
+ .text._DRV_USART_DriverHandleValidate
+                0x9d004370       0x28 build/default/production/_ext/116167346/drv_usart.o
+                0x9d004370                _DRV_USART_DriverHandleValidate
+
+.text.SYS_INT_ExternalInterruptTriggerSet
+                0x9d004398       0x28
+ .text.SYS_INT_ExternalInterruptTriggerSet
+                0x9d004398       0x28 build/default/production/_ext/1704461839/sys_int_pic32.o
+                0x9d004398                SYS_INT_ExternalInterruptTriggerSet
+
+.text.delay     0x9d0043c0       0x24
+ .text.delay    0x9d0043c0       0x24 build/default/production/_ext/1360937237/app.o
+                0x9d0043c0                delay
+
+.text.main      0x9d0043e4       0x20
+ .text.main     0x9d0043e4       0x20 build/default/production/_ext/1360937237/main.o
+                0x9d0043e4                main
 
 .text.SYS_DMA_ChannelTransferEventHandlerSet
-                0x9d0037b8       0x20
+                0x9d004404       0x20
  .text.SYS_DMA_ChannelTransferEventHandlerSet
-                0x9d0037b8       0x20 build/default/production/_ext/1515734680/sys_dma.o
-                0x9d0037b8                SYS_DMA_ChannelTransferEventHandlerSet
+                0x9d004404       0x20 build/default/production/_ext/1515734680/sys_dma.o
+                0x9d004404                SYS_DMA_ChannelTransferEventHandlerSet
 
 .text.DRV_PMP0_Initialize
-                0x9d0037d8       0x1c
+                0x9d004424       0x1c
  .text.DRV_PMP0_Initialize
-                0x9d0037d8       0x1c build/default/production/_ext/664138601/drv_pmp_static.o
-                0x9d0037d8                DRV_PMP0_Initialize
+                0x9d004424       0x1c build/default/production/_ext/664138601/drv_pmp_static.o
+                0x9d004424                DRV_PMP0_Initialize
 
 .text.initCentroids
-                0x9d0037f4       0x18
+                0x9d004440       0x18
  .text.initCentroids
-                0x9d0037f4       0x18 build/default/production/_ext/169316842/centroid.o
-                0x9d0037f4                initCentroids
+                0x9d004440       0x18 build/default/production/_ext/1078824437/centroid.o
+                0x9d004440                initCentroids
 
-.text           0x9d00380c       0x18
- .text          0x9d00380c       0x18 c:/program files (x86)/microchip/xc32/v1.42/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib\libpic32.a(default-nmi-handler.o)
-                0x9d00380c                _nmi_handler
+.text           0x9d004458       0x18
+ .text          0x9d004458       0x18 c:/program files (x86)/microchip/xc32/v1.42/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib\libpic32.a(default-nmi-handler.o)
+                0x9d004458                _nmi_handler
 
 .text.SYS_DEVCON_Initialize
-                0x9d003824       0x14
+                0x9d004470       0x14
  .text.SYS_DEVCON_Initialize
-                0x9d003824       0x14 build/default/production/_ext/565619703/sys_devcon.o
-                0x9d003824                SYS_DEVCON_Initialize
+                0x9d004470       0x14 build/default/production/_ext/565619703/sys_devcon.o
+                0x9d004470                SYS_DEVCON_Initialize
 
 .text.SYS_INT_Initialize
-                0x9d003838       0x14
+                0x9d004484       0x14
  .text.SYS_INT_Initialize
-                0x9d003838       0x14 build/default/production/_ext/1704461839/sys_int_pic32.o
-                0x9d003838                SYS_INT_Initialize
+                0x9d004484       0x14 build/default/production/_ext/1704461839/sys_int_pic32.o
+                0x9d004484                SYS_INT_Initialize
 
 .text.APP_Line_Done_Interrupt_Handler
-                0x9d00384c       0x10
+                0x9d004498       0x10
  .text.APP_Line_Done_Interrupt_Handler
-                0x9d00384c       0x10 build/default/production/_ext/1360937237/app.o
-                0x9d00384c                APP_Line_Done_Interrupt_Handler
+                0x9d004498       0x10 build/default/production/_ext/1360937237/app.o
+                0x9d004498                APP_Line_Done_Interrupt_Handler
 
 .text.SYS_CLK_SystemFrequencyGet
-                0x9d00385c        0xc
+                0x9d0044a8        0xc
  .text.SYS_CLK_SystemFrequencyGet
-                0x9d00385c        0xc build/default/production/_ext/639803181/sys_clk_static.o
-                0x9d00385c                SYS_CLK_SystemFrequencyGet
+                0x9d0044a8        0xc build/default/production/_ext/639803181/sys_clk_static.o
+                0x9d0044a8                SYS_CLK_SystemFrequencyGet
 
 .text.SYS_CLK_PeripheralFrequencyGet
-                0x9d003868        0xc
+                0x9d0044b4        0xc
  .text.SYS_CLK_PeripheralFrequencyGet
-                0x9d003868        0xc build/default/production/_ext/639803181/sys_clk_static.o
-                0x9d003868                SYS_CLK_PeripheralFrequencyGet
+                0x9d0044b4        0xc build/default/production/_ext/639803181/sys_clk_static.o
+                0x9d0044b4                SYS_CLK_PeripheralFrequencyGet
 
 .text.APP_Initialize
-                0x9d003874        0xc
+                0x9d0044c0        0xc
  .text.APP_Initialize
-                0x9d003874        0xc build/default/production/_ext/1360937237/app.o
-                0x9d003874                APP_Initialize
+                0x9d0044c0        0xc build/default/production/_ext/1360937237/app.o
+                0x9d0044c0                APP_Initialize
 
 .text.App_Frame_Event_Handler
-                0x9d003880        0x8
+                0x9d0044cc        0x8
  .text.App_Frame_Event_Handler
-                0x9d003880        0x8 build/default/production/_ext/1360937237/app.o
+                0x9d0044cc        0x8 build/default/production/_ext/1360937237/app.o
 
 .text.DRV_I2C_TransferStatusGet
-                0x9d003888        0x8
+                0x9d0044d4        0x8
  .text.DRV_I2C_TransferStatusGet
-                0x9d003888        0x8 build/default/production/_ext/1255245923/drv_i2c.o
-                0x9d003888                DRV_I2C_TransferStatusGet
+                0x9d0044d4        0x8 build/default/production/_ext/1255245923/drv_i2c.o
+                0x9d0044d4                DRV_I2C_TransferStatusGet
 
 .text.SYS_DEVCON_Tasks
-                0x9d003890        0x8
+                0x9d0044dc        0x8
  .text.SYS_DEVCON_Tasks
-                0x9d003890        0x8 build/default/production/_ext/565619703/sys_devcon.o
-                0x9d003890                SYS_DEVCON_Tasks
+                0x9d0044dc        0x8 build/default/production/_ext/565619703/sys_devcon.o
+                0x9d0044dc                SYS_DEVCON_Tasks
 
 .text._on_reset
-                0x9d003898        0x8
+                0x9d0044e4        0x8
  .text._on_reset
-                0x9d003898        0x8 c:/program files (x86)/microchip/xc32/v1.42/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib\libpic32.a(default-on-reset.o)
-                0x9d003898                _on_reset
+                0x9d0044e4        0x8 c:/program files (x86)/microchip/xc32/v1.42/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib\libpic32.a(default-on-reset.o)
+                0x9d0044e4                _on_reset
 
 .text._on_bootstrap
-                0x9d0038a0        0x8
+                0x9d0044ec        0x8
  .text._on_bootstrap
-                0x9d0038a0        0x8 c:/program files (x86)/microchip/xc32/v1.42/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib\libpic32.a(default-on-bootstrap.o)
-                0x9d0038a0                _on_bootstrap
+                0x9d0044ec        0x8 c:/program files (x86)/microchip/xc32/v1.42/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib\libpic32.a(default-on-bootstrap.o)
+                0x9d0044ec                _on_bootstrap
+
+.rodata         0x9d0044f4        0x4
+ .rodata        0x9d0044f4        0x4 build/default/production/_ext/1078824437/centroid.o

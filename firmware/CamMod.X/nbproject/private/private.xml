@@ -3,15 +3,11 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/microchip/harmony/v2_01b/framework/driver/i2c/src/dynamic/drv_i2c.c</file>
-            <file>file:/C:/microchip/harmony/v2_01b/framework/peripheral/int/templates/int_SourceControl_Default.h</file>
-            <file>file:/C:/Users/Matthew%20Fonken/Desktop/camera-module/CamMod/firmware/src/system_config/default/system_interrupt.c</file>
-            <file>file:/C:/Users/Matthew%20Fonken/Desktop/camera-module/CamMod/firmware/src/system_config/default/system_tasks.c</file>
+            <file>file:/C:/Users/Matthew%20Fonken/Desktop/camera-module/CamMod/firmware/src/centroid.c</file>
             <file>file:/C:/Users/Matthew%20Fonken/Desktop/camera-module/CamMod/firmware/src/main.c</file>
-            <file>file:/C:/Users/Matthew%20Fonken/Desktop/CamMod/CamMod/firmware/src/centroid.c</file>
-            <file>file:/C:/microchip/harmony/v2_01b/framework/peripheral/devcon/templates/devcon_JTAGEnable_Default.h</file>
+            <file>file:/C:/Users/Matthew%20Fonken/Desktop/camera-module/CamMod/firmware/src/app.h</file>
             <file>file:/C:/Users/Matthew%20Fonken/Desktop/camera-module/CamMod/firmware/src/ov9712.h</file>
-            <file>file:/C:/Users/Matthew%20Fonken/Desktop/camera-module/CamMod/firmware/CamMod.X/nbproject/Makefile-default.mk</file>
+            <file>file:/C:/Users/Matthew%20Fonken/Desktop/camera-module/CamMod/firmware/src/centroid.h</file>
             <file>file:/C:/Users/Matthew%20Fonken/Desktop/camera-module/CamMod/firmware/src/app.c</file>
         </group>
     </open-files>

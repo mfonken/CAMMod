@@ -1,7 +1,7 @@
 #include "centroid.h"
 #define NULL_ 0xff
 
-#define THRESH  0
+#define THRESH  200
 
 static void cma( double new_val, double *avg, uint16_t num )
 {
@@ -20,7 +20,7 @@ uint8_t getBlobId(uint16_t x, uint16_t y, uint16_t n_c, uint8_t *num_blobs)
             double x_l = centroids.blobs[i].X;                   // Current average
             double n_l = centroids.blobs[i].w_last/2;            // Last row width
         
-            if( ( ( x + n_c + MAX_GAP) >= ( x_l - n_l) )  && // Check overlap of lower bound of blob and upper (with gap tolerance) of new
+            if( ( ( x + n_c + MAX_GAP)  >= ( x_l - n_l ) )  && // Check overlap of lower bound of blob and upper (with gap tolerance) of new
                 ( ( x - n_c - MAX_GAP ) <= ( x_l + n_l ) ) ) // and of upper bound of blob and lower (with gap tolerance) of new
             {
                 if( id == 0xff )                    // If new blob is not claimed
@@ -45,12 +45,12 @@ uint8_t getBlobId(uint16_t x, uint16_t y, uint16_t n_c, uint8_t *num_blobs)
     return id;                                  // Return id: Valid if claimed, NULL_ if not
 }
 
-void getCentroids( uint8_t *image_line, uint16_t line_number, uint8_t skip )
+void getCentroids( uint8_t *image_line, uint16_t line_number )
 {
     uint8_t gap = NULL_, num_adj = 0, temp_id = 0;   // Global variables
     double a_x_last = 0;                  // Global last X and Y averages
     uint16_t x;
-    for( x = 0; x < CENTROIDS_WIDTH; x += skip )            // Traverse all columns
+    for( x = 0; x < CENTROIDS_WIDTH; x += CENTROIDS_INTERVAL )            // Traverse all columns
     {
         if(image_line[x] > THRESH)                             // Check if pixel is on
         {
@@ -62,7 +62,7 @@ void getCentroids( uint8_t *image_line, uint16_t line_number, uint8_t skip )
         {
             gap++;                                  // Increment the gap counter
             if( gap == MAX_GAP ||
-                  x == (CENTROIDS_HEIGHT - 1))                    // If max gap reached
+                  x == (CENTROIDS_WIDTH - 1))                    // If max gap reached
             {                                               // Include last pixel into a blob
                 temp_id = getBlobId( a_x_last, line_number, num_adj, &centroids.numBlobs );   // Get a blob to add to by coordinates and adjacent pixel width
                 if( temp_id == NULL_ )                   // If no blob return
@@ -88,9 +88,10 @@ void getCentroids( uint8_t *image_line, uint16_t line_number, uint8_t skip )
     }
 }
 
-void initCentroids( uint16_t width, uint16_t height )
+void initCentroids( uint16_t width, uint16_t height, uint8_t interval )
 {
-    CENTROIDS_WIDTH  = width;
-    CENTROIDS_HEIGHT = height;
+    CENTROIDS_WIDTH     = width;
+    CENTROIDS_HEIGHT    = height;
+    CENTROIDS_INTERVAL  = interval;
     centroids.numBlobs = 0;
 }

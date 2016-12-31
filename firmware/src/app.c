@@ -216,7 +216,7 @@ void APP_Tasks ( void )
                 SYS_INT_SourceEnable( INT_SOURCE_EXTERNAL_3 );
                 appData.state = APP_STATE_SERVICE_TASKS;
                 
-//                initCentroids( APP_FRAME_WIDTH, APP_CAMERA_HEIGHT, 10 );
+                initCentroids( 32, 27, 1 );
             }
             break;
         }
@@ -273,6 +273,7 @@ void APP_VSYNC_Interrupt_Handler( void )
 
     printChar( 0xee );
     char numBlobs = (char)centroids.numBlobs;
+    centroids.numBlobs = 0;
     char i = 0;
     printChar( numBlobs );
     for( ; i < numBlobs; i++ )
