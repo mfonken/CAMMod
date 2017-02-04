@@ -181,7 +181,7 @@
         <Name>system_init.c</Name>
         <Path>Source Files/app/system_config/default</Path>
         <Checksum>6AE4B968109629652914432C8B696699</Checksum>
-        <ProjectFileChecksum>22188F595C23ED806DBC9F8C528D418E</ProjectFileChecksum>
+        <ProjectFileChecksum>EEBF0F95BBC98A4AC43B6655EF2F7418</ProjectFileChecksum>
       </Template>
       <Template>
         <Name>main.c</Name>
@@ -214,7 +214,7 @@
       <Template>
         <Name>system_config.h</Name>
         <Path>Header Files/app/system_config/default</Path>
-        <Checksum>386090E29C934B55778767CF490E5A85</Checksum>
+        <Checksum>2294A149E67B88A982B9125058302A70</Checksum>
       </Template>
       <Template>
         <Name>app.h</Name>
@@ -229,20 +229,20 @@
         <Name>system_interrupt.c</Name>
         <Path>Source Files/app/system_config/default</Path>
         <Checksum>B3954E3C8BD14A0C1F9F8CFC2C27A59F</Checksum>
-        <ProjectFileChecksum>66F03263EB13865FEB0610DC2EAC033B</ProjectFileChecksum>
+        <ProjectFileChecksum>14FAEE8C2316680039FEF2B94195777D</ProjectFileChecksum>
       </Template>
       <Template>
         <Name>sys_clk_static.c</Name>
         <Path>Source Files/app/system_config/default/framework/system/clk/src</Path>
-        <Checksum>CEBA06BC804795487714DAB155140A6D</Checksum>
+        <Checksum>CA634186EAB53BF2DEF1BC54737FCCC5</Checksum>
       </Template>
     </Templates>
     <CompilerItems>
       <C32>
-        <Include value="C:/Users/Matthew Fonken/Desktop/CamMod/CamMod/firmware/src"/>
-        <Include value="C:/Users/Matthew Fonken/Desktop/CamMod/CamMod/firmware/src/system_config/default"/>
+        <Include value="C:/Users/Matthew Fonken/Desktop/camera-module/CamMod/firmware/src"/>
+        <Include value="C:/Users/Matthew Fonken/Desktop/camera-module/CamMod/firmware/src/system_config/default"/>
         <Include value="C:/microchip/harmony/v2_01b/framework"/>
-        <Include value="C:/Users/Matthew Fonken/Desktop/CamMod/CamMod/firmware/src/system_config/default/framework"/>
+        <Include value="C:/Users/Matthew Fonken/Desktop/camera-module/CamMod/firmware/src/system_config/default/framework"/>
       </C32>
     </CompilerItems>
     <Libraries>

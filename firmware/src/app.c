@@ -48,6 +48,8 @@ SUBSTITUTE GOODS, TECHNOLOGY, SERVICES, OR ANY CLAIMS BY THIRD PARTIES
 // DOM-IGNORE-END
 //</editor-fold>
 
+#define DEBUG_IMG
+
 //<editor-fold defaultstate="collapsed" desc="Include Files">
 // *****************************************************************************
 // *****************************************************************************
@@ -203,20 +205,15 @@ void APP_Tasks ( void )
 
                 /* Setup the channel */
                 SYS_DMA_ChannelSetup(appData.sysDMAHandle,
-                                     (SYS_DMA_CHANNEL_OP_MODE_BASIC 
-                                        | SYS_DMA_CHANNEL_OP_MODE_AUTO),
-                                     INT_SOURCE_EXTERNAL_4);
+                                        (SYS_DMA_CHANNEL_OP_MODE_BASIC | SYS_DMA_CHANNEL_OP_MODE_AUTO),
+                                        INT_SOURCE_EXTERNAL_4);
 
                 /* Add the memory block transfer request. */  
-                SYS_DMA_ChannelTransferAdd( appData.sysDMAHandle, 
-                                            ( uint8_t * )&PMDIN, 1,                   // Set source address to Parallel Master Port Data IN of size 1 byte
-                                            appData.ramBuff, APP_CAMERA_WIDTH,   // Set destination address to buffer in SRAM of size APP_DMA_FRAME_BUFFER_SIZE
-                                            1 );                                  // Transfer 1 byte every trigger
-                
-                SYS_INT_SourceEnable( INT_SOURCE_EXTERNAL_3 );
+                transferAddDMA();
+                //APP_FRAME_WIDTH, APP_FRAME_HEIGHT
+                initCentroids( APP_FRAME_WIDTH_RGGB, APP_FRAME_HEIGHT, APP_DEFAULT_INTERVAL, APP_DEFAULT_THRESHOLD );
                 appData.state = APP_STATE_SERVICE_TASKS;
-                
-                initCentroids( 32, 27, 1 );
+                SYS_INT_SourceEnable( INT_SOURCE_EXTERNAL_3 );
             }
             break;
         }
@@ -266,48 +263,37 @@ void APP_VSYNC_Interrupt_Handler( void )
     }
     else
     {
+        sendCentroidData();
         frame_row_div_count = APP_FRAME_ROW_DIV;
-        SYS_INT_SourceStatusSet( DMA_TRIGGER_SOFTWARE_1 );
     }
-    //<editor-fold defaultstate="collapsed" desc="Centroids"> 
-
-    printChar( 0xee );
-    char numBlobs = (char)centroids.numBlobs;
-    centroids.numBlobs = 0;
-    char i = 0;
-    printChar( numBlobs );
-    for( ; i < numBlobs; i++ )
-    {
-        printChar( (char)centroids.blobs[i].X );
-        printChar( (char)centroids.blobs[i].Y );
-    }
-//    printChar( 0x01 );
-//    printChar( 10 );
-//    printChar( 10 );
-//</editor-fold>
-    
     frame_row_count = 0;
+    
+#ifdef DEBUG_IMG
     printChar( 0xab );  
     printChar( 0x34 );
+#endif
 }
 
 void APP_HSYNC_Interrupt_Handler( void )
 {
-    if( --frame_row_div_count ==  0)
+    if( frame_row_div_count-- ==  0)
     {
-        transferAddDMA();
         disablePCLKINT();
-
         getCentroids( appData.ramBuff, frame_row_count );
         
-        volatile uint8_t i = 0;
-        while( i < APP_FRAME_HEIGHT_RGGB )
+#ifdef DEBUG_IMG
+        uint8_t i = 0;
+        while( i < APP_FRAME_WIDTH_RGGB )
         {
-            printChar( appData.ramBuff[i++] );
-            delay(160);
+            printChar( appData.ramBuff[i] );
+            i++;
+            //delay(0);
+            //delay(160);
         }
+#endif
         frame_row_div_count = APP_FRAME_ROW_DIV;
         frame_row_count++;
+        transferAddDMA();
         enablePCLKINT();
     }   
 }
@@ -326,6 +312,29 @@ void APP_Line_Done_Interrupt_Handler( void )
 // Section: System Functions
 // *****************************************************************************
 // *****************************************************************************
+
+void sendCentroidData(void)
+{
+    //<editor-fold defaultstate="collapsed" desc="Centroids"> 
+    printChar( CENTROID_HEAD );
+    char numBlobs = (char)centroids.numBlobs;
+    if( numBlobs > MAX_CENTROIDS ) numBlobs = MAX_CENTROIDS;
+    uint8_t i = 0;
+    printChar( numBlobs );
+    uint16_t x, y;
+    for( ; i < numBlobs; i++ )
+    {
+        x = ( uint16_t )( centroids.blobs[i].X );
+        y = ( uint16_t )( centroids.blobs[i].Y );
+        printTwoBytes( x );
+        printTwoBytes( y );
+        printTwoBytes( centroids.blobs[i].mass );
+    }
+    
+    resetBlobs();
+//</editor-fold>
+}
+
 void delay( int count )
 {
     int j = 0;
@@ -337,7 +346,15 @@ void printChar( uint8_t c )
     if( !DRV_USART_TransmitBufferIsFull( appData.drvUSARTHandle ) )
     {
         DRV_USART_WriteByte( appData.drvUSARTHandle , c );
+        delay(150);
     }
+}
+void printTwoBytes( uint16_t d )
+{
+    uint8_t top = *( ( uint8_t * )&d + 1 );
+    uint8_t btm = *( uint8_t * )&d;
+    printChar( top );
+    printChar( btm );
 }
 //</editor-fold>
 

@@ -79,13 +79,18 @@ extern "C" {
 // *****************************************************************************
 // *****************************************************************************
 // *****************************************************************************
-#define APP_CAMERA_WIDTH            1280 * 3
+#define APP_CAMERA_WIDTH            1280
 #define APP_CAMERA_HEIGHT           800
-#define APP_FRAME_WIDTH             30
-#define APP_FRAME_HEIGHT            32
-#define APP_FRAME_HEIGHT_RGGB       APP_FRAME_HEIGHT * 2
-#define APP_FRAME_LINE_DIV          ( APP_CAMERA_WIDTH / APP_FRAME_WIDTH )
-#define APP_FRAME_ROW_DIV           ( APP_CAMERA_HEIGHT / APP_FRAME_HEIGHT ) 
+#define APP_FRAME_WIDTH             10//APP_CAMERA_WIDTH  / 4
+#define APP_FRAME_HEIGHT            26//APP_CAMERA_HEIGHT / 8
+#define APP_FRAME_WIDTH_RGGB        APP_FRAME_WIDTH * 2
+#define APP_FRAME_LINE_DIV        ( APP_CAMERA_WIDTH  / APP_FRAME_WIDTH )
+#define APP_FRAME_ROW_DIV         ( APP_CAMERA_HEIGHT / APP_FRAME_HEIGHT ) 
+    
+#define APP_DEFAULT_INTERVAL        1
+#define APP_DEFAULT_THRESHOLD       200
+    
+#define MAX_CENTROIDS               3
 //</editor-fold>
     
 //<editor-fold defaultstate="collapsed" desc="Type Definitions">
@@ -131,6 +136,8 @@ void APP_HSYNC_Interrupt_Handler(     void );
 void APP_PCLK_Interrupt_Handler(      void );
 void delay(                            int );
 void printChar(                    uint8_t );
+void printTwoBytes(             uint16_t d );
+void sendCentroidData(                 void);
 //</editor-fold>
 
 #endif /* _APP_H */
