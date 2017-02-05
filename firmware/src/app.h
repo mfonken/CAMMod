@@ -81,13 +81,13 @@ extern "C" {
 // *****************************************************************************
 #define APP_CAMERA_WIDTH            1280
 #define APP_CAMERA_HEIGHT           800
-#define APP_FRAME_WIDTH             10//APP_CAMERA_WIDTH  / 4
-#define APP_FRAME_HEIGHT            10//APP_CAMERA_HEIGHT / 8
+#define APP_FRAME_WIDTH             APP_CAMERA_WIDTH  / 20
+#define APP_FRAME_HEIGHT            APP_CAMERA_HEIGHT / 10
 #define APP_FRAME_WIDTH_RGGB        APP_FRAME_WIDTH * 2
 #define APP_FRAME_LINE_DIV        ( APP_CAMERA_WIDTH  / ( APP_FRAME_WIDTH + 1 ) )
 #define APP_FRAME_ROW_DIV         ( APP_CAMERA_HEIGHT / ( APP_FRAME_HEIGHT + 1 ) ) 
     
-#define APP_DEFAULT_INTERVAL        1
+#define APP_DEFAULT_INTERVAL        2
 #define APP_DEFAULT_THRESHOLD       245
     
 #define MAX_CENTROIDS               5

@@ -3,42 +3,41 @@
 
 #include <stdint.h>
 
-#define MAX_BLOBS       10
-#define MAX_GAP         10
+#define MAX_BLOBS       6
+#define MAX_GAP         15
     
-#define NULL_G          -1
-#define NULL_C          0xfe
+#define NULL_G          0xef
+#define NULL_C          0xef
 
 #define CENTROID_HEAD   0xee
 
 typedef struct _blob_t
 {
-    double      X;
-    double      Y;
-    
-    uint16_t    mass;
-    
-    uint16_t    height;
-    uint16_t    w_last;
-    uint16_t    x_last;
-    uint16_t    y_last;
+    float      X;
+    float      Y;
+  
+    int    mass;
+    int    height;
+    int    w_last;
+    int    x_last;
+    int    y_last;
 } blob_t;
 
 typedef struct _centroids_t
 {
-    uint8_t     numBlobs;
+    int     numBlobs;
     blob_t      blobs[MAX_BLOBS];
 } centroids_t;
 
 centroids_t centroids;
 
-uint16_t    CENTROIDS_WIDTH;
-uint16_t    CENTROIDS_HEIGHT;
-uint16_t    CENTROIDS_INTERVAL;
-uint8_t     CENTROIDS_THRESH;
-uint8_t     getBlobId(double x, double y, uint16_t n_c, uint8_t *num_blobs);
-void        getCentroids( uint8_t image_line[], uint16_t line_number );
-void        initCentroids( uint16_t width, uint16_t height, uint16_t interval, uint8_t thresh );
-void        resetBlobs( void );
+int    CENTROIDS_WIDTH;
+int    CENTROIDS_HEIGHT;
+int    CENTROIDS_INTERVAL;
+int    CENTROIDS_THRESH;
+int    getBlobId(float x, float y, int n_c, int *num_blobs);
+void   getCentroids( uint8_t image_line[], int line_number );
+void   initCentroids( int width, int height, int interval, int thresh );
+void   resetBlobs( void );
 
 #endif /* _EXAMPLE_FILE_NAME_H */

@@ -211,7 +211,7 @@ void APP_Tasks ( void )
 
                 /* Add the memory block transfer request. */  
                 transferAddDMA();
-                //APP_FRAME_WIDTH, APP_FRAME_HEIGHT
+                //APP_FRAME_WIDTH, APP_FRAME_HEIGHT, APP_FRAME_WIDTH_RGGB
                 initCentroids( APP_FRAME_WIDTH_RGGB, APP_FRAME_HEIGHT, APP_DEFAULT_INTERVAL, APP_DEFAULT_THRESHOLD );
                 appData.state = APP_STATE_SERVICE_TASKS;
                 SYS_INT_SourceEnable( INT_SOURCE_EXTERNAL_3 );
@@ -267,7 +267,7 @@ void APP_VSYNC_Interrupt_Handler( void )
     }
     else
     {
-        //sendCentroidData();
+        sendCentroidData();
 #ifdef DEBUG_IMG
         printChar( 0xab );  
         printChar( 0x34 );
@@ -289,16 +289,9 @@ void APP_HSYNC_Interrupt_Handler( void )
         //disablePCLKINT();
         getCentroids( appData.ramBuff, frame_row_count );
         
-#ifdef DEBUG_IMG
+#ifdef DEBUG_IMG_
         uint8_t i = 0;
-        while( i < APP_FRAME_WIDTH_RGGB )
-        {
-            printChar( appData.ramBuff[i] );
-            i++;
-            //delay(0);
-            //delay(160);
-        }
-        //printChar(frame_row_count);
+        while( i < APP_FRAME_WIDTH_RGGB ) printChar( appData.ramBuff[i++] );
 #endif
         frame_row_div_count = APP_FRAME_ROW_DIV;
         frame_row_count++;
@@ -326,15 +319,15 @@ void sendCentroidData(void)
 {
     //<editor-fold defaultstate="collapsed" desc="Centroids"> 
     printChar( CENTROID_HEAD );
-    char numBlobs = (char)centroids.numBlobs;
+    uint8_t numBlobs = centroids.numBlobs;
     if( numBlobs > MAX_CENTROIDS ) numBlobs = MAX_CENTROIDS;
     uint8_t i = 0;
     printChar( numBlobs );
     uint16_t x, y;
     for( ; i < numBlobs; i++ )
     {
-        x = ( uint16_t )( centroids.blobs[i].X );
-        y = ( uint16_t )( centroids.blobs[i].Y );
+        x = centroids.blobs[i].X;
+        y = centroids.blobs[i].Y;
         printTwoBytes( x );
         printTwoBytes( y );
         printTwoBytes( centroids.blobs[i].mass );
