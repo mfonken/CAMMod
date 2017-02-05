@@ -253,6 +253,9 @@ void APP_Tasks ( void )
     }
 }
 
+// *****************************************************************************
+// Section: VSYNC Handlers
+// *****************************************************************************
 void APP_VSYNC_Interrupt_Handler( void )
 {
     if(wait_for_vsync)
@@ -274,6 +277,9 @@ void APP_VSYNC_Interrupt_Handler( void )
 #endif
 }
 
+// *****************************************************************************
+// Section: HSYNC Handlers
+// *****************************************************************************
 void APP_HSYNC_Interrupt_Handler( void )
 {
     if( frame_row_div_count-- ==  0)
