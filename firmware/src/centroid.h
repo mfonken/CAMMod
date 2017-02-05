@@ -25,8 +25,8 @@ typedef struct _blob_t
 
 typedef struct _centroids_t
 {
+    blob_t  blobs[MAX_BLOBS];
     int     numBlobs;
-    blob_t      blobs[MAX_BLOBS];
 } centroids_t;
 
 centroids_t centroids;
@@ -35,7 +35,7 @@ int    CENTROIDS_WIDTH;
 int    CENTROIDS_HEIGHT;
 int    CENTROIDS_INTERVAL;
 int    CENTROIDS_THRESH;
-int    getBlobId(float x, float y, int n_c, int *num_blobs);
+int    getBlobId(float x, float y, int n_c );
 void   getCentroids( uint8_t image_line[], int line_number );
 void   initCentroids( int width, int height, int interval, int thresh );
 void   resetBlobs( void );
