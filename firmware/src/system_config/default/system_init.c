@@ -255,7 +255,7 @@ void SYS_Initialize ( void* data )
     /*Setup the INT_SOURCE_EXTERNAL_4 and Enable it*/
     SYS_INT_VectorPrioritySet(INT_VECTOR_INT4, INT_PRIORITY_LEVEL3);
     SYS_INT_VectorSubprioritySet(INT_VECTOR_INT4, INT_SUBPRIORITY_LEVEL1);
-    SYS_INT_ExternalInterruptTriggerSet(INT_EXTERNAL_INT_SOURCE4,INT_EDGE_TRIGGER_FALLING);
+    SYS_INT_ExternalInterruptTriggerSet(INT_EXTERNAL_INT_SOURCE4,INT_EDGE_TRIGGER_RISING);
     //SYS_INT_SourceEnable(INT_SOURCE_EXTERNAL_4); // Enabled as needed
 
     /****************************************************************************************************************/

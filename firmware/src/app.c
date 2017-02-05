@@ -84,8 +84,9 @@ SUBSTITUTE GOODS, TECHNOLOGY, SERVICES, OR ANY CLAIMS BY THIRD PARTIES
     Application strings and buffers are be defined outside this structure.
 */
 APP_DATA appData;
-volatile uint16_t frame_row_count = 0;
-volatile uint16_t frame_row_div_count = APP_FRAME_ROW_DIV;
+
+uint16_t frame_row_count = 0;
+uint16_t frame_row_div_count = APP_FRAME_ROW_DIV;
 bool wait_for_vsync = true;
 
 //</editor-fold>
@@ -260,21 +261,22 @@ void APP_VSYNC_Interrupt_Handler( void )
 {
     if(wait_for_vsync)
     {
-        SYS_INT_SourceEnable( INT_SOURCE_EXTERNAL_4 );
-        SYS_INT_SourceEnable( INT_SOURCE_EXTERNAL_1 );
+        //enablePCLKINT();
+        SYS_INT_SourceEnable( INT_SOURCE_EXTERNAL_1 ); // Enable HSYNC
         wait_for_vsync = false;
     }
     else
     {
-        sendCentroidData();
+        //sendCentroidData();
+#ifdef DEBUG_IMG
+        printChar( 0xab );  
+        printChar( 0x34 );
+#endif
         frame_row_div_count = APP_FRAME_ROW_DIV;
     }
     frame_row_count = 0;
     
-#ifdef DEBUG_IMG
-    printChar( 0xab );  
-    printChar( 0x34 );
-#endif
+
 }
 
 // *****************************************************************************
@@ -284,7 +286,7 @@ void APP_HSYNC_Interrupt_Handler( void )
 {
     if( frame_row_div_count-- ==  0)
     {
-        disablePCLKINT();
+        //disablePCLKINT();
         getCentroids( appData.ramBuff, frame_row_count );
         
 #ifdef DEBUG_IMG
@@ -296,11 +298,12 @@ void APP_HSYNC_Interrupt_Handler( void )
             //delay(0);
             //delay(160);
         }
+        //printChar(frame_row_count);
 #endif
         frame_row_div_count = APP_FRAME_ROW_DIV;
         frame_row_count++;
         transferAddDMA();
-        enablePCLKINT();
+        //enablePCLKINT();
     }   
 }
 

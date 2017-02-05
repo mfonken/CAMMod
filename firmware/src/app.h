@@ -82,15 +82,15 @@ extern "C" {
 #define APP_CAMERA_WIDTH            1280
 #define APP_CAMERA_HEIGHT           800
 #define APP_FRAME_WIDTH             10//APP_CAMERA_WIDTH  / 4
-#define APP_FRAME_HEIGHT            26//APP_CAMERA_HEIGHT / 8
+#define APP_FRAME_HEIGHT            10//APP_CAMERA_HEIGHT / 8
 #define APP_FRAME_WIDTH_RGGB        APP_FRAME_WIDTH * 2
-#define APP_FRAME_LINE_DIV        ( APP_CAMERA_WIDTH  / APP_FRAME_WIDTH )
-#define APP_FRAME_ROW_DIV         ( APP_CAMERA_HEIGHT / APP_FRAME_HEIGHT ) 
+#define APP_FRAME_LINE_DIV        ( APP_CAMERA_WIDTH  / ( APP_FRAME_WIDTH + 1 ) )
+#define APP_FRAME_ROW_DIV         ( APP_CAMERA_HEIGHT / ( APP_FRAME_HEIGHT + 1 ) ) 
     
 #define APP_DEFAULT_INTERVAL        1
-#define APP_DEFAULT_THRESHOLD       200
+#define APP_DEFAULT_THRESHOLD       245
     
-#define MAX_CENTROIDS               3
+#define MAX_CENTROIDS               5
 //</editor-fold>
     
 //<editor-fold defaultstate="collapsed" desc="Type Definitions">
@@ -115,7 +115,6 @@ typedef struct
     DRV_HANDLE                          drvUSARTHandle;
     SYS_DMA_CHANNEL_HANDLE              sysDMAHandle;   
     uint8_t                             ramBuff[APP_CAMERA_WIDTH];
-
 } APP_DATA;
 
 

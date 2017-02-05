@@ -4,9 +4,10 @@
 #include <stdint.h>
 
 #define MAX_BLOBS       10
-#define MAX_GAP         30
+#define MAX_GAP         10
     
-#define NULL_           0x00ff
+#define NULL_G          -1
+#define NULL_C          0xfe
 
 #define CENTROID_HEAD   0xee
 
@@ -36,7 +37,7 @@ uint16_t    CENTROIDS_HEIGHT;
 uint16_t    CENTROIDS_INTERVAL;
 uint8_t     CENTROIDS_THRESH;
 uint8_t     getBlobId(double x, double y, uint16_t n_c, uint8_t *num_blobs);
-void        getCentroids( uint8_t *image_line, uint16_t line_number );
+void        getCentroids( uint8_t image_line[], uint16_t line_number );
 void        initCentroids( uint16_t width, uint16_t height, uint16_t interval, uint8_t thresh );
 void        resetBlobs( void );
 

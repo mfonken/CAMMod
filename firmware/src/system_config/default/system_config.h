@@ -78,7 +78,7 @@ extern "C" {
 */
 #define SYS_CLK_FREQ                        48000000ul
 #define SYS_CLK_BUS_PERIPHERAL_1            48000000ul
-#define SYS_CLK_BUS_REFERENCE_1             24000000ul
+#define SYS_CLK_BUS_REFERENCE_1             8000000ul
 #define SYS_CLK_UPLL_BEFORE_DIV2_FREQ       192000000ul
 #define SYS_CLK_CONFIG_PRIMARY_XTAL         8000000ul
 #define SYS_CLK_CONFIG_SECONDARY_XTAL       32768ul

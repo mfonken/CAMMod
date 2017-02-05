@@ -214,7 +214,8 @@
       <Template>
         <Name>system_config.h</Name>
         <Path>Header Files/app/system_config/default</Path>
-        <Checksum>2294A149E67B88A982B9125058302A70</Checksum>
+        <Checksum>F5611746C9E8CD8BAE1DBE2B97205B91</Checksum>
+        <ProjectFileChecksum>7C1430812C2E76EAC65545C13525A531</ProjectFileChecksum>
       </Template>
       <Template>
         <Name>app.h</Name>
@@ -234,15 +235,15 @@
       <Template>
         <Name>sys_clk_static.c</Name>
         <Path>Source Files/app/system_config/default/framework/system/clk/src</Path>
-        <Checksum>CA634186EAB53BF2DEF1BC54737FCCC5</Checksum>
+        <Checksum>CEBA06BC804795487714DAB155140A6D</Checksum>
       </Template>
     </Templates>
     <CompilerItems>
       <C32>
-        <Include value="C:/Users/Matthew Fonken/Desktop/camera-module/CamMod/firmware/src"/>
-        <Include value="C:/Users/Matthew Fonken/Desktop/camera-module/CamMod/firmware/src/system_config/default"/>
-        <Include value="C:/microchip/harmony/v2_01b/framework"/>
-        <Include value="C:/Users/Matthew Fonken/Desktop/camera-module/CamMod/firmware/src/system_config/default/framework"/>
+        <Include value="C:\Users\Matthew Fonken\Desktop\camera-module\CamMod\firmware\src"/>
+        <Include value="C:\Users\Matthew Fonken\Desktop\camera-module\CamMod\firmware\src\system_config\default"/>
+        <Include value="C:\microchip\harmony\v2_01b\framework"/>
+        <Include value="C:\Users\Matthew Fonken\Desktop\camera-module\CamMod\firmware\src\system_config\default\framework"/>
       </C32>
     </CompilerItems>
     <Libraries>
