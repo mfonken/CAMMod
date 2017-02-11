@@ -3,41 +3,57 @@
 
 #include <stdint.h>
 
-#define MAX_BLOBS       6
-#define MAX_GAP         15
-    
 #define NULL_G          0xef
 #define NULL_C          0xef
 
 #define CENTROID_HEAD   0xee
 
-typedef struct _blob_t
+#define MAX_CENTROIDS   100
+#define MAP_SIZE        MAX_CENTROIDS * 2
+#define MAX_SEGMENTS    400
+#define MAX_GAP         1
+
+typedef struct
 {
-    float      X;
-    float      Y;
-  
-    int    mass;
-    int    height;
-    int    w_last;
-    int    x_last;
-    int    y_last;
-} blob_t;
+    double  X;                      /**< X center value */
+    double  Y;                      /**< Y center value */
+    int     M;
+    int     n;
+} centroid_t;
 
-typedef struct _centroids_t
+typedef struct
 {
-    blob_t  blobs[MAX_BLOBS];
-    int     numBlobs;
-} centroids_t;
+    int     i;
+    int     l;
+    double  x;
+    double  w;
+    int     m;
+} segment_t;
 
-centroids_t centroids;
+int map_index = 0;
+int segment_index = 0;
 
-int    CENTROIDS_WIDTH;
-int    CENTROIDS_HEIGHT;
-int    CENTROIDS_INTERVAL;
-int    CENTROIDS_THRESH;
-int    getBlobId(float x, float y, int n_c );
-void   getCentroids( uint8_t image_line[], int line_number );
-void   initCentroids( int width, int height, int interval, int thresh );
-void   resetBlobs( void );
+typedef struct
+{
+    int     p; // point
+    bool    a; // active
+    int     y; // last y
+    double  x; // last x
+    int     w; // last width
+} map_t;
+
+map_t       map[MAP_SIZE];
+segment_t   segments[MAX_SEGMENTS];
+centroid_t  centroids[MAX_CENTROIDS];  /**< Global array of detected object */
+
+int     CENTROIDS_WIDTH;
+int     CENTROIDS_HEIGHT;
+int     CENTROIDS_INTERVAL;
+int     CENTROIDS_THRESH;
+int     processCentroids( void );
+int     getSegmentId( int y, double x, int w );
+void    getCentroids( uint8_t image_line[], int line_number );
+void    initCentroids( int width, int height, int interval, int thresh );
+void    resetBlobs( void );
 
 #endif /* _EXAMPLE_FILE_NAME_H */

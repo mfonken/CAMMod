@@ -5,45 +5,66 @@ inline void cma( float new_val, float *avg, int num )
     *avg += ( new_val - *avg ) / num); // num is pre-incremented
 }
 
-int getBlobId( float x, float y, int n_c )
+int processCentroids( void )
 {
-    n_c >>= 2;
-    unsigned int x_n_c_p = x + n_c;
-    unsigned int x_n_c_n = x - n_c;
-    unsigned int id = NULL_C;                                         // NULL_ id (no adjacents)
-    unsigned int i = 0, e;
-    float n_l, avg;
-    for( ; i < centroids.numBlobs; i++ )
+    for( int j = 0; j < segment_index; j++ )
     {
-        if( ( y - centroids.blobs[i].y_last ) <= MAX_GAP )      // Ensure blob hasn't expired
+        segment_t s = segments[j];
+        for( int i = 0; i < map_index; i++ )
         {
-            n_l = centroids.blobs[i].w_last >> 2;               // Last row width
-            if( ( ( x_n_c_p + MAX_GAP)  >= ( centroids.blobs[i].X - n_l ) ) &&   // Check overlap of lower bound of blob and upper (with gap tolerance) of new
-                ( ( x_n_c_n - MAX_GAP ) <= ( centroids.blobs[i].X + n_l ) ) )    // and of upper bound of blob and lower (with gap tolerance) of new
+            if( s.i == i )
             {
-                if( id == NULL_C )                              // If new blob is not claimed
+                int p = map[i].p;
+                centroids[p].M += s.w;
+                centroids[p].n++;
+                cma( s.x, &centroids[p].X, centroids[p].n);
+                /* Quick Y estimate */
+                cma( s.l, &centroids[p].Y, centroids[p].n);
+            }
+        }
+    }
+    return map_index;
+}
+
+int getSegmentId( int y, double x, int w )
+{
+    /* Null id (no adjacents) */
+    int id = -1, i;
+    w /= 2;
+    for(i = 0; i < map_index; i++)
+    {
+        if( map[i].a ) // Ensure map is still active
+        {
+            if( ( y - map[i].y ) > MAX_GAP)
+            {
+                map[i].a = false;
+            }
+            else
+            {
+                /* Get current average and previous row width */
+                double x_l = map[i].x;
+                double w_l = map[i].w;
+                /* Check overlap of lower bound of centroid and upper (with gap tolerance) of new
+                 and of upper bound of centroid and lower (with gap tolerance) of new */
+                if( ( ( x + w + MAX_GAP ) >= ( x_l - w_l ) ) &&
+                   ( ( x - w - MAX_GAP ) <= ( x_l + w_l ) ) )
                 {
-                    id = i;                                     // Claim it under current id
-                }
-                else
-                {
-                    avg;
-                    avg = ( centroids.blobs[id].X + centroids.blobs[i].X ) >> 1;
-                    centroids.blobs[id].X = avg;
-                    avg = ( centroids.blobs[id].Y + centroids.blobs[i].Y ) >> 1;
-                    centroids.blobs[id].Y = avg;
-                    centroids.blobs[id].mass += centroids.blobs[i].mass;
-                    
-                    e = --centroids.numBlobs;
-                    centroids.blobs[i] = centroids.blobs[e];
-                    centroids.blobs[e].w_last = 0;
-                    centroids.blobs[e].height = 0;
-                    centroids.blobs[e].mass = 0;
+                    /* If object is unclaimed, claim it, otherwise combine it */
+                    if( id == -1 )
+                    {
+                        id = i;
+                    }
+                    else
+                    {
+                        // NOTE: Merged maps will re-merge every time (more efficient than checking)
+                        map[i] = map[id];
+                    }
                 }
             }
         }
     }
-    return id;                                          // Return id: Valid if claimed, NULL_ if not
+    /* Valid if object was claimed, null if not */
+    return id;
 }
 
 void getCentroids( uint8_t image_line[], int line_number )
@@ -51,13 +72,13 @@ void getCentroids( uint8_t image_line[], int line_number )
     unsigned int gap = NULL_G, temp_id;
     unsigned int num_adj = 0;                           // Global variables
     float a_x_last = 0;                                 // Global last X and Y averages
-    float x = 0, y = line_number;
+    float x = 0, line_number;
     while( x < CENTROIDS_WIDTH )                        // Traverse all columns
     {
         if( image_line[x] > CENTROIDS_THRESH )          // Check if pixel is on
         {
             gap = 0;                                    // Reset gap counter
-            cma( x, &a_x_last, num_adj );               // Average adjacent pixels
+            cma( x, &a_x_last, num_adj + 1);               // Average adjacent pixels
             num_adj++;                                  // Increment adjacent pixels
         }
         else                                            // Otherwise, if gap counter is counting (i.e. there was a recent pixel
@@ -67,26 +88,24 @@ void getCentroids( uint8_t image_line[], int line_number )
                 default:
                     gap++;
                 case MAX_GAP:
-                    temp_id = getBlobId( a_x_last, y, num_adj );      // Get a blob to add to by coordinates and adjacent pixel width
+                    temp_id = getSegmentId( line_number, a_x_last, num_adj );
                     if( temp_id == NULL_C )             // If no blob return
                     {
-                        temp_id = centroids.numBlobs++; // Otherwise make a new id for the blob and increment the id counter
+                        temp_id = map_index++;
+                        map[temp_id].p = temp_id;
+                        map[temp_id].a = true;
                     }
-                    if( temp_id != NULL_C )
-                    {
-                        centroids.blobs[temp_id].height++;
-                        cma( a_x_last, &centroids.blobs[temp_id].X, centroids.blobs[temp_id].height ); // Cumulate the new pixels into the blob's X average
-                        cma(        y, &centroids.blobs[temp_id].Y, centroids.blobs[temp_id].height ); // Cumulate the new row into the blob's Y average
-                        centroids.blobs[temp_id].mass  += num_adj;
-                        centroids.blobs[temp_id].w_last = num_adj;              // Update blob with: New last row width
-                        centroids.blobs[temp_id].x_last = a_x_last;             // last row average
-                        centroids.blobs[temp_id].y_last = y;          // last row
-                        
-                        num_adj = 0;                                            // Reset number of adjacent pixels
-                        a_x_last = 0;                                           // Reset adjacent pixel average
-                        gap = NULL_G;                                           // Reset the gap to NULL_
-                    }
-                    break;
+                    map[temp_id].x = a_x_last;
+                    map[temp_id].w = num_adj / 2;
+                    map[temp_id].y = line_number;
+                    segments[segment_index].i = map[temp_id].p;
+                    segments[segment_index].l = line_number;
+                    segments[segment_index].x = a_x_last;
+                    segments[segment_index].w = num_adj;
+                    segment_index++;
+                    num_adj = 0;                                            // Reset number of adjacent pixels
+                    a_x_last = 0;                                           // Reset adjacent pixel average
+                    gap = -1;
                 case NULL_G:
             }
         }

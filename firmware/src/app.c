@@ -319,18 +319,17 @@ void sendCentroidData(void)
 {
     //<editor-fold defaultstate="collapsed" desc="Centroids"> 
     printChar( CENTROID_HEAD );
-    uint8_t numBlobs = centroids.numBlobs;
-    if( numBlobs > MAX_CENTROIDS ) numBlobs = MAX_CENTROIDS;
-    uint8_t i = 0;
+    uint8_t numBlobs = processCentroids();
+    uint8_t i;
     printChar( numBlobs );
     uint16_t x, y;
-    for( ; i < numBlobs; i++ )
+    for( i = 0; i < numBlobs; i++ )
     {
-        x = centroids.blobs[i].X;
-        y = centroids.blobs[i].Y;
+        x = centroids[i].X;
+        y = centroids[i].Y;
         printTwoBytes( x );
         printTwoBytes( y );
-        printTwoBytes( centroids.blobs[i].mass );
+        printTwoBytes( centroids[i].mass );
     }
     
     resetBlobs();
