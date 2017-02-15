@@ -1,36 +1,53 @@
 #include "centroid.h"
 
-inline void cma( float new_val, float *avg, int num )
+map_t       map[MAP_SIZE];
+segment_t   segments[MAX_SEGMENTS];
+centroid_t  centroids[MAX_CENTROIDS];  /**< Global array of detected object */
+
+uint16_t    map_index = 0;
+uint16_t    segment_index = 0;
+uint16_t    num_centroids = 0;
+
+inline float cma( float new_val, float avg, uint16_t num )
 {
-    *avg += ( new_val - *avg ) / num); // num is pre-incremented
+    return avg + ( new_val - avg ) / num; // num is pre-incremented
 }
 
-int processCentroids( void )
+uint16_t processCentroids( void )
 {
-    for( int j = 0; j < segment_index; j++ )
+    uint16_t j = 0, i = 0;
+    for( ; j < segment_index; j++ )
     {
-        segment_t s = segments[j];
-        for( int i = 0; i < map_index; i++ )
+        for( ; i < map_index; i++ )
         {
-            if( s.i == i )
+            if( segments[j].i == i )
             {
-                int p = map[i].p;
-                centroids[p].M += s.w;
+                uint16_t p = map[i].p;
+                centroids[p].M += segments[j].w;
                 centroids[p].n++;
-                cma( s.x, &centroids[p].X, centroids[p].n);
-                /* Quick Y estimate */
-                cma( s.l, &centroids[p].Y, centroids[p].n);
+                centroids[p].X = cma( segments[j].x, centroids[p].X, centroids[p].n);
+                centroids[p].Y = cma( segments[j].l, centroids[p].Y, centroids[p].n);
             }
         }
     }
-    return map_index;
+    for( i = 0; i < num_centroids; i++)
+    {
+        if( centroids[i].M == 0)
+        {
+            while( j == 0 )
+            {
+                j = centroids[--num_centroids].M;
+                if( num_centroids == 0 ) return 0;
+            }
+            centroids[i] = centroids[num_centroids];
+        }
+    }
+    return num_centroids;
 }
 
-int getSegmentId( int y, double x, int w )
+uint16_t getSegmentId( uint16_t y, float x, uint16_t w )
 {
-    /* Null id (no adjacents) */
-    int id = -1, i;
-    w /= 2;
+    uint16_t id = NULL_C, i;
     for(i = 0; i < map_index; i++)
     {
         if( map[i].a ) // Ensure map is still active
@@ -42,22 +59,29 @@ int getSegmentId( int y, double x, int w )
             else
             {
                 /* Get current average and previous row width */
-                double x_l = map[i].x;
-                double w_l = map[i].w;
+                float    x_l = map[i].x;
+                uint16_t w_l = map[i].w;
+                float  w_c_2 =   w / 2;
+                float  w_l_2 = w_l / 2;  
                 /* Check overlap of lower bound of centroid and upper (with gap tolerance) of new
                  and of upper bound of centroid and lower (with gap tolerance) of new */
-                if( ( ( x + w + MAX_GAP ) >= ( x_l - w_l ) ) &&
-                   ( ( x - w - MAX_GAP ) <= ( x_l + w_l ) ) )
+                if( ( ( x + w_c_2 + MAX_GAP ) >= ( x_l - w_l_2 ) ) &&
+                    ( ( x - w_c_2 - MAX_GAP ) <= ( x_l + w_l_2 ) ) )
                 {
                     /* If object is unclaimed, claim it, otherwise combine it */
-                    if( id == -1 )
+                    if( id == NULL_C )
                     {
                         id = i;
                     }
                     else
                     {
-                        // NOTE: Merged maps will re-merge every time (more efficient than checking)
-                        map[i] = map[id];
+                        if(map[i].s)
+                        {
+                            num_centroids--;
+                            map[i].s  = false;
+                            map[id].s = false;
+                            map[i]    = map[id];
+                        }
                     }
                 }
             }
@@ -67,64 +91,65 @@ int getSegmentId( int y, double x, int w )
     return id;
 }
 
-void getCentroids( uint8_t image_line[], int line_number )
+void getCentroids( uint8_t image_line[], uint16_t line_number )
 {
-    unsigned int gap = NULL_G, temp_id;
-    unsigned int num_adj = 0;                           // Global variables
+    uint16_t gap = NULL_G, temp_id, num_adj = 0, x = 1;                           // Global variables
     float a_x_last = 0;                                 // Global last X and Y averages
-    float x = 0, line_number;
     while( x < CENTROIDS_WIDTH )                        // Traverse all columns
     {
-        if( image_line[x] > CENTROIDS_THRESH )          // Check if pixel is on
+        uint8_t a = image_line[x];
+        if( a > CENTROIDS_THRESH )          // Check if pixel is on
         {
-            gap = 0;                                    // Reset gap counter
-            cma( x, &a_x_last, num_adj + 1);               // Average adjacent pixels
-            num_adj++;                                  // Increment adjacent pixels
+            gap = 0;
+            num_adj++; 
+            a_x_last = cma( x, a_x_last, num_adj );               // Average adjacent pixels
+                                             // Increment adjacent pixels
         }
-        else                                            // Otherwise, if gap counter is counting (i.e. there was a recent pixel
+        else if( gap != MAX_GAP )                                           // Otherwise, if gap counter is counting (i.e. there was a recent pixel
         {
-            switch(gap)
+            gap++;
+            if( gap == MAX_GAP )
             {
-                default:
-                    gap++;
-                case MAX_GAP:
-                    temp_id = getSegmentId( line_number, a_x_last, num_adj );
-                    if( temp_id == NULL_C )             // If no blob return
-                    {
-                        temp_id = map_index++;
-                        map[temp_id].p = temp_id;
-                        map[temp_id].a = true;
-                    }
-                    map[temp_id].x = a_x_last;
-                    map[temp_id].w = num_adj / 2;
-                    map[temp_id].y = line_number;
-                    segments[segment_index].i = map[temp_id].p;
-                    segments[segment_index].l = line_number;
-                    segments[segment_index].x = a_x_last;
-                    segments[segment_index].w = num_adj;
-                    segment_index++;
-                    num_adj = 0;                                            // Reset number of adjacent pixels
-                    a_x_last = 0;                                           // Reset adjacent pixel average
-                    gap = -1;
-                case NULL_G:
+                temp_id = getSegmentId( line_number, a_x_last, num_adj );
+                if( temp_id == NULL_C )             // If no blob return
+                {
+                    temp_id = map_index++;
+                    map[temp_id].p = temp_id;
+                    map[temp_id].a = true;
+                    map[temp_id].s = true;
+                    num_centroids++;
+                }
+                map[temp_id].x = a_x_last;
+                map[temp_id].w = num_adj;
+                map[temp_id].y = line_number;
+                segments[segment_index].i = map[temp_id].p;
+                segments[segment_index].l = line_number;
+                segments[segment_index].x = a_x_last;
+                segments[segment_index].w = num_adj;
+                segment_index++;
+                num_adj  = 0;                                            // Reset number of adjacent pixels
+                a_x_last = 0;                                           // Reset adjacent pixel average
+                gap      = NULL_G;
             }
         }
         x += CENTROIDS_INTERVAL;
     }
 }
 
-void initCentroids( int width, int height, int interval, int thresh )
-{
+void initCentroids( uint16_t width, uint16_t height, uint16_t interval, uint16_t thresh )
+{  
     CENTROIDS_WIDTH     = width;
     CENTROIDS_HEIGHT    = height;
     CENTROIDS_INTERVAL  = interval;
     CENTROIDS_THRESH    = thresh;
-    centroids.numBlobs  = 0;
 }
 
 void resetBlobs( void )
 {
-    unsigned int i = sizeof( centroids );
-    register unsigned char * = (unsigned char*)&centroids;
+    num_centroids = 0;
+    segment_index = 0;
+    map_index     = 0;
+    uint16_t i    = sizeof( centroids );
+    uint8_t * p   = ( uint8_t * )&centroids;
     while (i-- > 0) *p++ = 0;
 }

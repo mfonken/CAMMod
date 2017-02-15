@@ -2,6 +2,8 @@
 #define _CENTROID_H
 
 #include <stdint.h>
+#include <stdbool.h>
+#include "app.h"
 
 #define NULL_G          0xef
 #define NULL_C          0xef
@@ -9,51 +11,47 @@
 #define CENTROID_HEAD   0xee
 
 #define MAX_CENTROIDS   100
-#define MAP_SIZE        MAX_CENTROIDS * 2
-#define MAX_SEGMENTS    400
-#define MAX_GAP         1
+#define MAP_SIZE        MAX_CENTROIDS
+#define MAX_SEGMENTS    4000
+#define MAX_GAP         10
+#define MIN_MASS        50
 
 typedef struct
 {
-    double  X;                      /**< X center value */
-    double  Y;                      /**< Y center value */
-    int     M;
-    int     n;
+    float        X;                      /**< X center value */
+    float        Y;                      /**< Y center value */
+    uint16_t     M;
+    uint16_t     n;
 } centroid_t;
 
 typedef struct
 {
-    int     i;
-    int     l;
-    double  x;
-    double  w;
-    int     m;
+    uint16_t  i;
+    uint16_t  l;
+    float     x;
+    float     w;
 } segment_t;
-
-int map_index = 0;
-int segment_index = 0;
 
 typedef struct
 {
-    int     p; // point
-    bool    a; // active
-    int     y; // last y
-    double  x; // last x
-    int     w; // last width
+    uint16_t    p; // point
+    bool        s; // single
+    bool        a; // active
+    uint16_t    y; // last y
+    float       x; // last x
+    uint16_t    w; // last width
 } map_t;
 
-map_t       map[MAP_SIZE];
-segment_t   segments[MAX_SEGMENTS];
-centroid_t  centroids[MAX_CENTROIDS];  /**< Global array of detected object */
+extern centroid_t  centroids[];
 
-int     CENTROIDS_WIDTH;
-int     CENTROIDS_HEIGHT;
-int     CENTROIDS_INTERVAL;
-int     CENTROIDS_THRESH;
-int     processCentroids( void );
-int     getSegmentId( int y, double x, int w );
-void    getCentroids( uint8_t image_line[], int line_number );
-void    initCentroids( int width, int height, int interval, int thresh );
-void    resetBlobs( void );
+uint16_t    CENTROIDS_WIDTH;
+uint16_t    CENTROIDS_HEIGHT;
+uint16_t    CENTROIDS_INTERVAL;
+uint16_t    CENTROIDS_THRESH;
+uint16_t    processCentroids( void );
+uint16_t    getSegmentId( uint16_t y, float x, uint16_t w );
+void        getCentroids( uint8_t image_line[], uint16_t line_number );
+void        initCentroids( uint16_t width, uint16_t height, uint16_t interval, uint16_t thresh );
+void        resetBlobs( void );
 
 #endif /* _EXAMPLE_FILE_NAME_H */

@@ -48,8 +48,6 @@ SUBSTITUTE GOODS, TECHNOLOGY, SERVICES, OR ANY CLAIMS BY THIRD PARTIES
 // DOM-IGNORE-END
 //</editor-fold>
 
-#define DEBUG_IMG
-
 //<editor-fold defaultstate="collapsed" desc="Include Files">
 // *****************************************************************************
 // *****************************************************************************
@@ -267,11 +265,12 @@ void APP_VSYNC_Interrupt_Handler( void )
     }
     else
     {
+#ifdef PROCESS_CENTROIDS
         sendCentroidData();
-#ifdef DEBUG_IMG
+#endif
         printChar( 0xab );  
         printChar( 0x34 );
-#endif
+
         frame_row_div_count = APP_FRAME_ROW_DIV;
     }
     frame_row_count = 0;
@@ -287,9 +286,11 @@ void APP_HSYNC_Interrupt_Handler( void )
     if( frame_row_div_count-- ==  0)
     {
         //disablePCLKINT();
+#ifdef PROCESS_CENTROIDS
         getCentroids( appData.ramBuff, frame_row_count );
+#endif
         
-#ifdef DEBUG_IMG_
+#ifdef DEBUG_IMG
         uint8_t i = 0;
         while( i < APP_FRAME_WIDTH_RGGB ) printChar( appData.ramBuff[i++] );
 #endif
@@ -318,18 +319,20 @@ void APP_Line_Done_Interrupt_Handler( void )
 void sendCentroidData(void)
 {
     //<editor-fold defaultstate="collapsed" desc="Centroids"> 
-    printChar( CENTROID_HEAD );
     uint8_t numBlobs = processCentroids();
     uint8_t i;
+    printChar( CENTROID_HEAD );
     printChar( numBlobs );
-    uint16_t x, y;
+    uint16_t x, y, m;
     for( i = 0; i < numBlobs; i++ )
     {
+        m = centroids[i].M;
         x = centroids[i].X;
         y = centroids[i].Y;
+
         printTwoBytes( x );
         printTwoBytes( y );
-        printTwoBytes( centroids[i].mass );
+        printTwoBytes( m );
     }
     
     resetBlobs();
