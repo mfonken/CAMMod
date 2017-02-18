@@ -49,7 +49,8 @@ SUBSTITUTE GOODS, TECHNOLOGY, SERVICES, OR ANY CLAIMS BY THIRD PARTIES
 #define _APP_H
 
 #define PROCESS_CENTROIDS
-//#define DEBUG_IMG
+#define DEBUG_IMG
+//#define BOOL_IMG
 
 //<editor-fold defaultstate="collapsed" desc="Included Files">
 // *****************************************************************************
@@ -84,14 +85,17 @@ extern "C" {
 // *****************************************************************************
 #define APP_CAMERA_WIDTH            1280
 #define APP_CAMERA_HEIGHT           800
-#define APP_FRAME_WIDTH             APP_CAMERA_WIDTH / 2
-#define APP_FRAME_HEIGHT            APP_CAMERA_HEIGHT
+#define APP_FRAME_WIDTH             APP_CAMERA_WIDTH / 80
+#define APP_FRAME_HEIGHT            APP_CAMERA_HEIGHT / 40
 #define APP_FRAME_WIDTH_RGGB        APP_FRAME_WIDTH * 2
+
+#define APP_FRAME_WIDTH_B_IMG_TOP  APP_FRAME_WIDTH - 16
+    
 #define APP_FRAME_LINE_DIV        ( APP_CAMERA_WIDTH  / ( APP_FRAME_WIDTH + 1 ) )
 #define APP_FRAME_ROW_DIV         ( APP_CAMERA_HEIGHT / ( APP_FRAME_HEIGHT + 1 ) ) 
     
-#define APP_DEFAULT_INTERVAL        5
-#define APP_DEFAULT_THRESHOLD       220
+#define APP_DEFAULT_INTERVAL        2
+#define APP_DEFAULT_THRESHOLD       250
 //</editor-fold>
     
 //<editor-fold defaultstate="collapsed" desc="Type Definitions">

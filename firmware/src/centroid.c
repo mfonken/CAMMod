@@ -8,9 +8,9 @@ uint16_t    map_index = 0;
 uint16_t    segment_index = 0;
 uint16_t    num_centroids = 0;
 
-inline float cma( float new_val, float avg, uint16_t num )
+inline void cma( float new_val, float * avg, uint16_t num )
 {
-    return avg + ( new_val - avg ) / num; // num is pre-incremented
+   *avg += ( new_val - *avg ) / num; // num is pre-incremented
 }
 
 uint16_t processCentroids( void )
@@ -25,8 +25,8 @@ uint16_t processCentroids( void )
                 uint16_t p = map[i].p;
                 centroids[p].M += segments[j].w;
                 centroids[p].n++;
-                centroids[p].X = cma( segments[j].x, centroids[p].X, centroids[p].n);
-                centroids[p].Y = cma( segments[j].l, centroids[p].Y, centroids[p].n);
+                cma( segments[j].x, &centroids[p].X, centroids[p].n);
+                cma( segments[j].l, &centroids[p].Y, centroids[p].n);
             }
         }
     }
@@ -93,17 +93,15 @@ uint16_t getSegmentId( uint16_t y, float x, uint16_t w )
 
 void getCentroids( uint8_t image_line[], uint16_t line_number )
 {
-    uint16_t gap = NULL_G, temp_id, num_adj = 0, x = 1;                           // Global variables
+    uint16_t gap = NULL_G, temp_id, num_adj = 0, x = 0; // Global variables
     float a_x_last = 0;                                 // Global last X and Y averages
     while( x < CENTROIDS_WIDTH )                        // Traverse all columns
     {
-        uint8_t a = image_line[x];
-        if( a > CENTROIDS_THRESH )          // Check if pixel is on
+        if( image_line[x] > CENTROIDS_THRESH )          // Check if pixel is on
         {
             gap = 0;
             num_adj++; 
-            a_x_last = cma( x, a_x_last, num_adj );               // Average adjacent pixels
-                                             // Increment adjacent pixels
+            cma( x, &a_x_last, num_adj );               // Average adjacent pixels
         }
         else if( gap != MAX_GAP )                                           // Otherwise, if gap counter is counting (i.e. there was a recent pixel
         {
@@ -111,7 +109,7 @@ void getCentroids( uint8_t image_line[], uint16_t line_number )
             if( gap == MAX_GAP )
             {
                 temp_id = getSegmentId( line_number, a_x_last, num_adj );
-                if( temp_id == NULL_C )             // If no blob return
+                if( temp_id == NULL_C && num_centroids < MAX_CENTROIDS )             // If no blob return
                 {
                     temp_id = map_index++;
                     map[temp_id].p = temp_id;

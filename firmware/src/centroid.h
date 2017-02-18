@@ -10,7 +10,7 @@
 
 #define CENTROID_HEAD   0xee
 
-#define MAX_CENTROIDS   100
+#define MAX_CENTROIDS   1
 #define MAP_SIZE        MAX_CENTROIDS
 #define MAX_SEGMENTS    4000
 #define MAX_GAP         10
@@ -42,7 +42,7 @@ typedef struct
     uint16_t    w; // last width
 } map_t;
 
-extern centroid_t  centroids[];
+extern centroid_t centroids[];
 
 uint16_t    CENTROIDS_WIDTH;
 uint16_t    CENTROIDS_HEIGHT;

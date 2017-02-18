@@ -95,6 +95,22 @@ bool wait_for_vsync = true;
 // Section: System Control Functions
 // *****************************************************************************
 // *****************************************************************************
+inline void enableVSYNCINT( void )
+{
+    SYS_INT_SourceEnable(INT_SOURCE_EXTERNAL_3);
+}
+inline void disableVSYNCINT( void )
+{
+    SYS_INT_SourceDisable(INT_SOURCE_EXTERNAL_3);
+}
+inline void enableHREFINT( void )
+{
+    SYS_INT_SourceEnable(INT_SOURCE_EXTERNAL_1);
+}
+inline void disableHREFINT( void )
+{
+    SYS_INT_SourceDisable(INT_SOURCE_EXTERNAL_1);
+}
 inline void enablePCLKINT( void )
 {
     SYS_INT_SourceEnable(INT_SOURCE_EXTERNAL_4);
@@ -118,6 +134,12 @@ inline void transferAddDMA( void )
 // *****************************************************************************
  static void App_Frame_Event_Handler(SYS_DMA_TRANSFER_EVENT event,
         SYS_DMA_CHANNEL_HANDLE handle, uintptr_t contextHandle);
+ 
+#ifdef BOOL_IMG
+    static uint8_t bImg[32000];
+    static int bIndex;
+    static bool b;
+#endif
 /*******************************************************************************
   Function:
     void APP_Initialize ( void )
@@ -213,6 +235,9 @@ void APP_Tasks ( void )
                 initCentroids( APP_FRAME_WIDTH_RGGB, APP_FRAME_HEIGHT, APP_DEFAULT_INTERVAL, APP_DEFAULT_THRESHOLD );
                 appData.state = APP_STATE_SERVICE_TASKS;
                 SYS_INT_SourceEnable( INT_SOURCE_EXTERNAL_3 );
+#ifdef BOOL_IMG
+        b = true;
+#endif
             }
             break;
         }
@@ -260,18 +285,33 @@ void APP_VSYNC_Interrupt_Handler( void )
     if(wait_for_vsync)
     {
         //enablePCLKINT();
-        SYS_INT_SourceEnable( INT_SOURCE_EXTERNAL_1 ); // Enable HSYNC
+        enableHREFINT();
         wait_for_vsync = false;
     }
     else
     {
 #ifdef PROCESS_CENTROIDS
-        sendCentroidData();
+//        sendCentroidData();
 #endif
         printChar( 0xab );  
         printChar( 0x34 );
 
         frame_row_div_count = APP_FRAME_ROW_DIV;
+#ifdef BOOL_IMG
+        disablePCLKINT();
+        disableHREFINT();
+        disableVSYNCINT();
+        int i = 0;
+        for(; i < bIndex; i++)
+        {
+             printChar( bImg[i] );
+        }
+        enableVSYNCINT();
+        enableHREFINT();
+        enablePCLKINT();
+//        b = true;
+        bIndex = 0;
+#endif
     }
     frame_row_count = 0;
     
@@ -294,6 +334,35 @@ void APP_HSYNC_Interrupt_Handler( void )
         uint8_t i = 0;
         while( i < APP_FRAME_WIDTH_RGGB ) printChar( appData.ramBuff[i++] );
 #endif
+#ifdef BOOL_IMG
+        if(b)
+        {
+            disablePCLKINT();
+            disableHREFINT();
+            disableVSYNCINT();
+            uint8_t j = 0, o = 0;
+            int i = 0;
+
+            while( i < 300 )//APP_FRAME_WIDTH_B_IMG_TOP )
+            {
+                o = 0;
+                for( j = 0; j < 8; j++)
+                {
+                    if( appData.ramBuff[i] > APP_DEFAULT_THRESHOLD )
+                        o |= 1;
+                    o <<= 1;
+                    i+=2;
+                }
+                bImg[bIndex++] = o; 
+            }
+
+            enableVSYNCINT();
+            enableHREFINT();
+            enablePCLKINT();
+//            b = false;
+        }
+#endif
+        
         frame_row_div_count = APP_FRAME_ROW_DIV;
         frame_row_count++;
         transferAddDMA();
